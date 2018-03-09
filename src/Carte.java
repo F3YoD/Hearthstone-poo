@@ -11,4 +11,11 @@ public class Carte {
         cout=0;
         degats=0;
     }
+
+    public Carte(String nom,int pv,int cout,int degats){
+        this.nom=nom;
+        this.pv=pv;
+        this.cout=cout;
+        this.degats=degats;
+    }
 }
