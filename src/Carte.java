@@ -4,7 +4,7 @@ public class Carte {
     private int cout;
     private int degats;
 
-    //setter
+    // ====================== constructeur ================== \\
     public Carte(){
         nom = null;
         pv=0;
