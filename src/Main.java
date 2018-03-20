@@ -7,7 +7,7 @@ public class Main {
     //constructeur
     public Main(){
         this.nb_carte=0;
-        this.liste_carte=new ArrayList<>();
+        this.liste_carte=new ArrayList<Carte>();
     }
 
     //setter
