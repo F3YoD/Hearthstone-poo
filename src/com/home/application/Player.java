@@ -1,5 +1,7 @@
 package com.home.application;
 
+import com.home.carte.Main;
+
 public class Player {
     private int vies;
     private Main main;
