@@ -1,6 +1,7 @@
 package com.home.application;
 
 import com.home.carte.*;
+import com.home.personnage.Player;
 
 public class Program {
 
