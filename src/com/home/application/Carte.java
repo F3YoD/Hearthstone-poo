@@ -1,4 +1,6 @@
-public class Carte {
+package com.home.application;
+
+public abstract class Carte {
     private String nom;
     private int pv;
     private int cout;
@@ -20,7 +22,6 @@ public class Carte {
     }
 
     //setter
-
     public void setCout(int cout) {
         if (cout > 0) {
             this.cout = cout;

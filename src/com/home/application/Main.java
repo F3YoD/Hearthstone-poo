@@ -1,8 +1,10 @@
+package com.home.application;
+
 import java.util.ArrayList;
 
 public class Main {
     private int nb_carte; //nombre de carte actuellement dans la main;
-    private ArrayList<Carte> liste_carte;
+    private "ArrayList<Carte> liste_carte;
 
     //constructeur
     public Main(){

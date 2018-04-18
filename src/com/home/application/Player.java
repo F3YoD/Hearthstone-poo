@@ -1,3 +1,5 @@
+package com.home.application;
+
 public class Player {
     private int vies;
     private Main main;
