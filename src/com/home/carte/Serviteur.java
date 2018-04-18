@@ -46,5 +46,8 @@ public class Serviteur extends Carte {
         this.setDegats(res);
     }
 
-    
+    public void addVies(int pAjout){
+        int res = this.getVies() + pAjout;
+        this.setVies(res);
+    }
 }
