@@ -34,4 +34,11 @@ public class Carte {
 
         this.cout = pCout;
     }
+    //tostring
+
+
+    @Override
+    public String toString() {
+        return "nom : " + this.nom +" cout :" +this.cout;
+    }
 }
