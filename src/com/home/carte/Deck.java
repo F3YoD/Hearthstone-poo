@@ -15,4 +15,12 @@ public class Deck {
     public boolean add(Carte pCarte){
         return this.lstCarte.add(pCarte);
     }
+
+    public String toString(){
+        String fin="";
+        for (Carte i : this.lstCarte){
+            fin += i.toString() +"\n";
+        }
+        return fin;
+    }
 }
