@@ -41,4 +41,9 @@ public class Carte {
     public String toString() {
         return "nom : " + this.nom +" cout :" +this.cout;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

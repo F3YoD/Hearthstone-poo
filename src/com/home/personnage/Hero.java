@@ -59,4 +59,9 @@ public class Hero {
         }
         this.setPouvoir(new Pouvoir(pNomPouvoir, degat));
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

@@ -18,11 +18,14 @@ public class Program {
 
         System.out.println("" + joueur1.toString());
         System.out.println("" + joueur2.toString());
+        System.out.println("" + deck1.toString());
     }
     
     public static void InitDeck(Deck pDeck){
         Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2);
+        Serviteur c2 = new Serviteur("Champion de hurlevent",7,6,6);
 
         pDeck.add(c1);
+        pDeck.add(c2);
     }
 }

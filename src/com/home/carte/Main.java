@@ -37,8 +37,9 @@ public class Main {
         return this.liste_carte;
     }
 
-    public boolean equals(Main main2){
-        return this.liste_carte==main2.liste_carte;
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
     }
 
     //toString et a faire

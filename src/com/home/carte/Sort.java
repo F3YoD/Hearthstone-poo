@@ -12,5 +12,8 @@ public class Sort extends Carte {
         this.capacite = pCapacite;
     }
 
-
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

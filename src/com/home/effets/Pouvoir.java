@@ -38,4 +38,9 @@ public class Pouvoir {
 
         this.type = pType;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

@@ -50,4 +50,9 @@ public class Serviteur extends Carte {
         int res = this.getVies() + pAjout;
         this.setVies(res);
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

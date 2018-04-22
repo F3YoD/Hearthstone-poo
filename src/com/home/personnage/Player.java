@@ -41,4 +41,8 @@ public class Player {
         return "Player[ Hero: "+ this.getHero().getNom() + " ]";
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }
