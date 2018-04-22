@@ -13,8 +13,9 @@ public class Program {
         Deck deck1 = new Deck();
         Deck deck2 = new Deck();
         InitDeck(deck1);
-        Player joueur1 = new Player(rexar);
-        Player joueur2 = new Player(jaina);
+        Player joueur1 = new Player(rexar,deck1);
+        Player joueur2 = new Player(jaina,deck2);
+
 
         System.out.println("" + joueur1.toString());
         System.out.println("" + joueur2.toString());

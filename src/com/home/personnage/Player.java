@@ -12,8 +12,8 @@ public class Player {
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
     // ================================================================== \\
-    public Player(Hero pHero){
-        this.setDeck();
+    public Player(Hero pHero, Deck deck){
+        this.setDeck(deck);
         this.setHero(pHero);
     }
 
@@ -23,8 +23,8 @@ public class Player {
     public Deck getDeck(){return this.deck;}
     public Hero getHero(){return this.hero;}
 
-    private void setDeck(){
-        this.deck = new Deck();
+    public void setDeck(Deck deck){
+        this.deck = deck;
     }
 
     public void setHero(Hero pHero){
@@ -38,7 +38,7 @@ public class Player {
     // =========================== OVERRIDES ============================ \\
     // ================================================================== \\
     public String toString(){
-        return "Player[ Hero: "+ this.getHero().getNom() + " ]";
+        return "Player[ Hero: "+ this.getHero().getNom() + "\n" + this.deck.toString() + " ]";
     }
 
     @Override
