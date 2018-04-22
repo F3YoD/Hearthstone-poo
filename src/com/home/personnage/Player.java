@@ -1,18 +1,44 @@
 package com.home.personnage;
 
-import com.home.carte.Main;
+import com.home.carte.*;
 
 public class Player {
     // ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\
     // ================================================================== \\
-    private Main main;
+    private Deck deck;
+    private Hero hero;
 
-    public Player(int pV, Main pMain){
-        this.main = pMain;
+    // ================================================================== \\
+    // =========================== CONSTRUCT ============================ \\
+    // ================================================================== \\
+    public Player(Hero pHero){
+        this.setDeck();
+        this.setHero(pHero);
     }
 
+    // ================================================================== \\
+    // =========================== GETS/SETS ============================ \\
+    // ================================================================== \\
+    public Deck getDeck(){return this.deck;}
+    public Hero getHero(){return this.hero;}
+
+    private void setDeck(){
+        this.deck = new Deck();
+    }
+
+    public void setHero(Hero pHero){
+        if(!pHero.getNom().equals("rexar") && !pHero.getNom().equals("jaina"))
+            throw new IllegalArgumentException();
+
+        this.hero = pHero;
+    }
+
+    // ================================================================== \\
+    // =========================== OVERRIDES ============================ \\
+    // ================================================================== \\
     public String toString(){
-        return "PV : ???";
+        return "Player[ Hero: "+ this.getHero().getNom() + " ]";
     }
+
 }
