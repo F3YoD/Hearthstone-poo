@@ -38,7 +38,8 @@ public class Player {
     // =========================== OVERRIDES ============================ \\
     // ================================================================== \\
     public String toString(){
-        return "Player[ Hero: "+ this.getHero().getNom() + "\n" + this.deck.toString() + " ]";
+
+        return "Player[ Hero: "+ this.getHero().toString() + "\n" + this.deck.toString() + " ]";
     }
 
     @Override

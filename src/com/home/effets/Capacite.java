@@ -1,11 +1,5 @@
 package com.home.effets;
 
-/*
-enum Comportement {
-
-}
-*/
-
 public class Capacite {
 
     private String description;
