@@ -1,21 +1,8 @@
 package com.home.effets;
 
-public class Capacite {
+import com.home.application.Program;
+import com.home.carte.Main;
 
-    private String description;
-    public Capacite(String pDesc){
-        this.setDescription(pDesc);
-    }
-
-    private void setDescription(String pDesc){
-        if(!pDesc.trim().equals(""))
-            throw new IllegalArgumentException();
-
-        this.description = pDesc;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
+public interface Capacite {
+    public void realiser();
 }
