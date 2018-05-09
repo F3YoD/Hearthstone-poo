@@ -2,6 +2,8 @@ package com.home.effets;
 
 import com.home.carte.Serviteur;
 
+import java.util.ArrayList;
+
 public class Charge extends Capacite {
 
     public Charge(String description){
@@ -21,7 +23,7 @@ public class Charge extends Capacite {
     public String toString(){
         return "description : " + this.description;
     }
-    public void realiser(Serviteur serv){
+    public void realiser(Serviteur serv, ArrayList<Serviteur> lst){
         serv.setAttente(serv.getAttente() -1);
     }
 }
