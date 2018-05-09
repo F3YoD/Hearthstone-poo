@@ -3,10 +3,10 @@ package com.home.personnage;
 import com.home.effets.Pouvoir;
 
 public class Hero {
-    // ================================================================== \\
+
+    private String nom;// ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\
     // ================================================================== \\
-    private String nom;
     private int vies;
     private Pouvoir pouvoir;
 
