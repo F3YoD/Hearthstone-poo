@@ -25,6 +25,8 @@ public class Serviteur extends Carte {
     // ================================================================== \\
     public int getVies(){return this.nbVies;}
     public int getDegats(){return this.nbDegats;}
+    public int getPriorite(){return this.priorite;}
+    public int getAttente(){return this.attente;}
 
     private void setVies(int pVie){
         if(pVie < 0)
@@ -38,6 +40,20 @@ public class Serviteur extends Carte {
             throw new IllegalArgumentException();
 
         this.nbDegats = pDegats;
+    }
+
+    public void setPriorite(int prio){
+        if(prio !=0 && prio != 1){
+            throw new IllegalArgumentException();
+        }
+        this.priorite=prio;
+    }
+
+    public void setAttente(int attente){
+        if (attente >1 ){
+            throw new IllegalArgumentException();
+        }
+        this.attente=attente;
     }
 
     // ================================================================== \\
