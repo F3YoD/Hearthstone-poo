@@ -8,6 +8,8 @@ public class Serviteur extends Carte {
     // ================================================================== \\
     private int nbVies;
     private int nbDegats;
+    private int priorite;
+    private int attente;
 
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
