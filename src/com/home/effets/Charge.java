@@ -8,6 +8,7 @@ public class Charge extends Capacite {
 
     public Charge(String description){
         super();
+        this.type="Charge";
         this.setDescription(description);
     }
     public void setDescription(String desc){

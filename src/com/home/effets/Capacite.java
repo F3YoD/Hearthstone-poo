@@ -11,6 +11,7 @@ public abstract class Capacite {
 
     }
     protected String description;
+    protected String type;
     public abstract void realiser(Serviteur serviteur, ArrayList<Serviteur> lst);
     public abstract String getDescription();
     public abstract void setDescription(String desc);
