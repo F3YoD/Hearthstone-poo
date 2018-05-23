@@ -7,7 +7,9 @@ import java.util.ArrayList;
 public class Terrain {
     private ArrayList<Carte> lstCarte;
 
-    public Terrain(){}
+    public Terrain(){
+        this.lstCarte = new ArrayList<Carte>();
+    }
     public Terrain (ArrayList<Carte> liste){
         this.setLstCarte(liste);
     }
@@ -39,9 +41,12 @@ public class Terrain {
     @Override
     public String toString() {
         String fin="";
+
         for (Carte i : this.lstCarte){
             fin += i.toString() +"\n";
         }
+
+
         return fin;
     }
 }

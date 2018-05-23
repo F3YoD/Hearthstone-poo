@@ -36,9 +36,9 @@ public class Program {
 
         joueur1.getHero().getPouvoir().lancer(joueur2.getHero());
 
-        System.out.println(""+plateau.toString());
-        //System.out.println("" + joueur1.toString());
-        //System.out.println("" + joueur2.toString());
+        //System.out.println("" + plateau.toString());
+        System.out.println("" + joueur1.toString());
+        System.out.println("" + joueur2.toString());
     }
     
     public static void InitDeckRexar(Deck pDeck){
