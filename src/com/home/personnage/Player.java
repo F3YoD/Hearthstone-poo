@@ -1,6 +1,8 @@
 package com.home.personnage;
 
-import com.home.carte.*;
+import com.home.Environement.Deck;
+import com.home.Environement.Main;
+import com.home.Environement.Terrain;
 
 public class Player {
     // ================================================================== \\
@@ -8,13 +10,17 @@ public class Player {
     // ================================================================== \\
     private Deck deck;
     private Hero hero;
+    private Main main;
+    private Terrain terrain;
 
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
     // ================================================================== \\
-    public Player(Hero pHero, Deck deck){
+    public Player(Hero pHero, Deck deck,Main main,Terrain terrain){
         this.setDeck(deck);
         this.setHero(pHero);
+        this.setMain(main);
+        this.setTerrain(terrain);
     }
 
     // ================================================================== \\
@@ -23,8 +29,20 @@ public class Player {
     public Deck getDeck(){return this.deck;}
     public Hero getHero(){return this.hero;}
 
+    public Main getMain() {
+        return main;
+    }
+
+    public Terrain getTerrain() {
+        return terrain;
+    }
+
     public void setDeck(Deck deck){
         this.deck = deck;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
     }
 
     public void setHero(Hero pHero){
@@ -34,12 +52,16 @@ public class Player {
         this.hero = pHero;
     }
 
+    public void setTerrain(Terrain terrain) {
+        this.terrain = terrain;
+    }
+
     // ================================================================== \\
     // =========================== OVERRIDES ============================ \\
     // ================================================================== \\
     public String toString(){
 
-        return "Player[ Hero: "+ this.getHero().toString() + "\n" + this.deck.toString() + " ]";
+        return "Player[ Hero: "+ this.getHero().toString() + "\n Deck:" + this.deck.toString() + "\n Main :" + this.main.toString() + "\n Terrain : " + this.terrain.toString() +" ]";
     }
 
     @Override

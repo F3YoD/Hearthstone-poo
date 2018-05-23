@@ -1,4 +1,6 @@
-package com.home.carte;
+package com.home.Environement;
+
+import com.home.carte.Carte;
 
 import java.util.ArrayList;
 
@@ -42,5 +44,12 @@ public class Main {
         return super.equals(obj);
     }
 
-    //toString et a faire
+    @Override
+    public String toString() {
+        String fin="";
+        for (Carte i : this.liste_carte){
+            fin += i.toString() +"\n";
+        }
+        return fin;
+    }
 }
