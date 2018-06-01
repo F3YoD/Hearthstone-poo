@@ -1,6 +1,7 @@
 package com.home.carte;
 
 import com.home.effets.Capacite;
+import com.home.exception.mauvaisIdException;
 
 public abstract class Carte {
     // ================================================================== \\
@@ -41,7 +42,7 @@ public abstract class Carte {
 
 
 
-    public abstract void lancer();
+    public abstract void lancer() throws mauvaisIdException;
     //tostring
 
 
