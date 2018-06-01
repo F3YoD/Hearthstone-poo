@@ -45,17 +45,33 @@ public class Program {
     }
     
     public static void InitDeckRexar(Deck pDeck){
-        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2);
-        Serviteur c2 = new Serviteur("Champion de hurlevent",7,6,6);
+        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1));
+        Sort c2 = new Sort("Charge", 1,new Charge());
+        Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
+        Serviteur c4 = new Serviteur("Champion de hurlevent",7,6,6,
+                new CapaciteBonus("Bonus de Hurlevent",1,1));
+        Serviteur c5 = new Serviteur("Chef de raid",3,2,2, new CapaciteBonus("Bonus du chef de guerre",1,0));
+        Serviteur c6 = new Serviteur("Garde de Baie-du-butin",5,4,5,new Provocation());
+        Serviteur c7 = new Serviteur("La missilière téméraire",6,2,5,new Charge());
+        Serviteur c8 = new Serviteur("L'ogre-magi",4,4,4,new Provocation());
+        Serviteur c9 = new Serviteur("Archimage",6,7,4,new Provocation());
+        Serviteur c10 = new Serviteur("Gnôme lépreux", 1,1,1,new AttaqueMentale(2));
+        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golemisation",1,2,1));
 
         pDeck.add(c1);
         pDeck.add(c2);
+        pDeck.add(c3);
+        pDeck.add(c4);
+        pDeck.add(c5);
+        pDeck.add(c6);
+
     }
 
     public static void InitDeckJaina(Deck pDeck){
-        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2);
-        Serviteur c2 = new Serviteur("Champion de hurlevent",7,6,6);
-        Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new Attaqueciblée("Attaque du lepreux",2));
+        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1));
+        Sort c2 = new Sort("Charge", 1,new Charge());
+        Serviteur c3 = new Serviteur("Champion de hurlevent",7,6,6);
+        Serviteur c4= new Serviteur("Gnome lepreux",1,1,1,new Attaqueciblée("Attaque du lepreux",2));
 
         pDeck.add(c1);
         pDeck.add(c2);
