@@ -5,19 +5,23 @@ import com.home.carte.Carte;
 import com.home.exception.mauvaisIdException;
 
 public class AttaqueMentale extends Capacite{
+    int degats;
 
-    public AttaqueMentale(){
+    public AttaqueMentale(int degats){
         super("attaque mental : inflige 5 points de degat au hero");
+        this.setDegats(5);
+    }
+
+    public int getDegats() {
+        return degats;
+    }
+
+    public void setDegats(int degats) {
+        this.degats = degats;
     }
 
     @Override
     public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) throws mauvaisIdException {
-        int cible;
-        if(pIdLanceur == 1)
-            cible = 2;
-        else
-            cible = 1;
-
-        pPlateau.joueurAAttaquer(cible).getHero().addVies(-5);
+        pPlateau.joueurAAttaquer(pIdLanceur).getHero().addVies(- this.degats);
     }
 }

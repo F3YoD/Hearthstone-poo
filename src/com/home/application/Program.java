@@ -55,16 +55,19 @@ public class Program {
     public static void InitDeckJaina(Deck pDeck){
         Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2);
         Serviteur c2 = new Serviteur("Champion de hurlevent",7,6,6);
+        Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new Attaqueciblée("Attaque du lepreux",2));
 
         pDeck.add(c1);
         pDeck.add(c2);
+        pDeck.add(c3);
     }
 
     public static void startPartie(Plateau p) throws mauvaisIdException {
         System.out.println("******************************************* DEBUT PARTIE");
-        System.out.println(p.getJoueur2().getHero().toString());
-        p.joueurAAttaquer(p.getIdJoueurActuel()).getHero().addVies(-1);
-        System.out.println(p.getJoueur2().getHero().toString());
+        System.out.println(p.getJoueur1().getHero().toString());
+        Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new AttaqueMentale(5));
+        c3.getCap().realiser(c3,p,2);
+        System.out.println(p.getJoueur1().getHero().toString());
         System.out.println("******************************************* FIN PARTIE");
     }
 }
