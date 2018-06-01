@@ -1,7 +1,10 @@
 package com.home.Environement;
 
+import com.home.carte.Serviteur;
 import com.home.exception.mauvaisIdException;
 import com.home.personnage.Player;
+
+import java.util.Random;
 
 public class Plateau {
     private Player joueur1;
@@ -57,6 +60,19 @@ public class Plateau {
             return this.joueur2;
         }
         throw new mauvaisIdException("L'id est différent de 1 et 2");
+    }
+
+    /**
+     *  pioche une carte aleatoirement dans la deck du joueur p
+     *
+     * @param p le joueur recevant la carte
+     */
+    public void pioche(Player p){
+        Random rnd = new Random();
+        int posCarte = rnd.nextInt(p.getDeck().getLstCarte().size() - 1);
+
+        p.getMain().getListecarte().add(p.getDeck().getLstCarte().get(posCarte));
+        p.getDeck().getLstCarte().remove(posCarte);
     }
 
     @Override

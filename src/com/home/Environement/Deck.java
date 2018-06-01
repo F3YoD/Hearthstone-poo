@@ -26,6 +26,14 @@ public class Deck {
         return fin;
     }
 
+    public ArrayList<Carte> getLstCarte() {
+        return lstCarte;
+    }
+
+    public void setLstCarte(ArrayList<Carte> lstCarte) {
+        this.lstCarte = lstCarte;
+    }
+
     @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
