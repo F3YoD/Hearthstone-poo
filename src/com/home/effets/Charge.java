@@ -16,7 +16,7 @@ public class Charge extends Capacite {
     }
 
     @Override
-    public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) {
+    public void realiser(Carte lanceur, Plateau pPlateau) {
         Serviteur lanc =(Serviteur) lanceur;
         lanc.setAttente(0);
     }

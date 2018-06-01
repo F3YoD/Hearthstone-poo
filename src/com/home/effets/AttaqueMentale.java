@@ -2,7 +2,6 @@ package com.home.effets;
 
 import com.home.Environement.Plateau;
 import com.home.carte.Carte;
-import com.home.exception.mauvaisIdException;
 
 public class AttaqueMentale extends Capacite{
     private int degats;
@@ -21,7 +20,7 @@ public class AttaqueMentale extends Capacite{
     }
 
     @Override
-    public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) throws mauvaisIdException {
-        pPlateau.joueurAAttaquer(pIdLanceur).getHero().addVies(- this.degats);
+    public void realiser(Carte lanceur, Plateau pPlateau) {
+        pPlateau.joueurAAttaquer().getHero().addVies(- this.degats);
     }
 }

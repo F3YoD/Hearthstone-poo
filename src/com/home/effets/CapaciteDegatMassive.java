@@ -16,17 +16,9 @@ public class CapaciteDegatMassive extends Capacite {
     }
 
     @Override
-    public void realiser(Carte lanceur,Plateau pPlateau,  int pIdLanceur) {
-        if(pIdLanceur == 1){
-            for(Serviteur s : pPlateau.getJoueur1().getTerrain().getLstCarte()){
-                s.setDegats(this.degat);
-            }
-
-        }else{
-            // cible == 2
-            for(Serviteur s : pPlateau.getJoueur2().getTerrain().getLstCarte()){
-                s.setDegats(this.degat);
-            }
+    public void realiser(Carte lanceur,Plateau pPlateau) {
+        for(Serviteur s: pPlateau.joueurAAttaquer().getTerrain().getLstCarte()){
+            s.addVies(-degat);
         }
     }
 

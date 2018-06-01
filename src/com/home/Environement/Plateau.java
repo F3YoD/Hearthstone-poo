@@ -1,7 +1,6 @@
 package com.home.Environement;
 
-import com.home.carte.Serviteur;
-import com.home.exception.mauvaisIdException;
+
 import com.home.personnage.Player;
 
 import java.util.Random;
@@ -42,24 +41,24 @@ public class Plateau {
         this.idJoueurActuel = pId;
     }
 
-    public Player joueurAAttaquer(int pId) throws mauvaisIdException {
-        if(pId==1){
+    public Player joueurAAttaquer()  {
+        if(this.getIdJoueurActuel()==1){
             return this.joueur2;
         }
-        else if(pId==2){
+        else if(this.getIdJoueurActuel()==2){
             return this.joueur1;
         }
-        throw new mauvaisIdException("L'id est différent de 1 et 2");
+        return null;
     }
 
-    public Player joueurActuel(int pId) throws mauvaisIdException {
-        if(pId==1){
+    public Player joueurActuel()  {
+        if(this.getIdJoueurActuel()==1){
             return this.joueur1;
         }
-        else if(pId==2){
+        else if(this.getIdJoueurActuel()==2){
             return this.joueur2;
         }
-        throw new mauvaisIdException("L'id est différent de 1 et 2");
+        return null;
     }
 
     /**

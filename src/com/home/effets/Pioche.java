@@ -2,7 +2,6 @@ package com.home.effets;
 
 import com.home.Environement.Plateau;
 import com.home.carte.Carte;
-import com.home.exception.mauvaisIdException;
 
 public class Pioche extends Capacite {
     int nbpioche;
@@ -22,12 +21,10 @@ public class Pioche extends Capacite {
     }
 
     @Override
-    public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) {
+    public void realiser(Carte lanceur, Plateau pPlateau) {
         int i;
         for(i=0;i<this.nbpioche;i++){
-            try {
-                pPlateau.pioche(pPlateau.joueurActuel(pIdLanceur));
-                }catch(mauvaisIdException e){} //TODO
+                pPlateau.pioche(pPlateau.joueurActuel());
             }
     }
 }

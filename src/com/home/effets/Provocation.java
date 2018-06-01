@@ -13,7 +13,7 @@ public class Provocation extends Capacite {
     }
 
     @Override
-    public void realiser(Carte pLanceur, Plateau pPlateau, int pIdLanceur) {
+    public void realiser(Carte pLanceur, Plateau pPlateau) {
         ((Serviteur) pLanceur).setPriorite(1);
     }
 

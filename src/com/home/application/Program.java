@@ -6,13 +6,12 @@ import com.home.Environement.Plateau;
 import com.home.Environement.Terrain;
 import com.home.carte.*;
 import com.home.effets.*;
-import com.home.exception.mauvaisIdException;
+import com.home.exception.maxManaException;
 import com.home.personnage.*;
-import java.util.*;
 
 public class Program {
 
-    public static void main(String argv[]) throws mauvaisIdException {
+    public static void main(String argv[]) {
         Pouvoir feu = new Feu();
         Pouvoir force = new Force();
 
@@ -44,7 +43,7 @@ public class Program {
 
         startPartie(plateau);
     }
-    
+
     public static void InitDeckRexar(Deck pDeck){
         Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
@@ -124,11 +123,11 @@ public class Program {
         pDeck.add(c16);
     }
 
-    public static void startPartie(Plateau p) throws mauvaisIdException {
+    public static void startPartie(Plateau p)  {
         System.out.println("******************************************* DEBUT PARTIE");
         System.out.println(p.getJoueur1().getHero().toString());
         Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new AttaqueMentale(5));
-        c3.getCapacite().realiser(c3,p,2);
+        c3.getCapacite().realiser(c3,p);
         System.out.println(p.getJoueur1().getHero().toString());
         System.out.println("\033[32m******************************************* FIN PARTIE\033[0m");
 
@@ -149,26 +148,55 @@ public class Program {
 
     }
 
-    /**
-     * le sous programme demande au joueur ce qu'il veut faire que le joueur veut faire
-     * @return
-     */
-    public int getChoix(){
-        Scanner sc = new Scanner(System.in);
-        int choix;
-        do{
-            System.out.println("************************************faite un choix :");
-            System.out.println("1) posez 1 carte (taper 1)");
-            System.out.println("2) attaquez avec une carte (taper 2)");
-            System.out.println("3) utiliser la capacitée du héro (taper 3)");
-            System.out.println("4) passez le tour (taper 4)");
+    public static void jeu (){
+        Pouvoir feu = new Feu();
+        Pouvoir force = new Force();
+        boolean jeu=true;
 
-            choix = sc.nextInt();
-            if(choix < 1 || choix > 4)
-                System.out.println("erreure de saisie, recommancer");
+        // INIT HERO
+        Hero rexar = new Hero("rexar", 15, force);
+        Hero jaina = new Hero("jaina", 15, feu);
+        //Init mains
+        Main mainRexar = new Main();
+        Main mainJaina = new Main();
+        //Init Terrains
+        Terrain terrainRexar=new Terrain();
+        Terrain terrainJaina=new Terrain();
+        // INIT CARTES
+        Deck deckRexar = new Deck();
+        Deck deckJaina = new Deck();
+        InitDeckRexar(deckRexar);
+        InitDeckJaina(deckJaina);
+        //init players
+        Player joueur1 = new Player(rexar,deckRexar,mainRexar,terrainRexar);
+        Player joueur2 = new Player(jaina,deckJaina,mainJaina,terrainJaina);
+        //init plateau
+        Plateau plateau= new Plateau(joueur1,joueur2);
 
-        }while(choix < 1 || choix > 4);
+        joueur1.getHero().getPouvoir().lancer(joueur2.getHero());
 
-        return choix;
+        //System.out.println("" + plateau.toString());
+        System.out.println("" + joueur1.toString());
+        System.out.println("" + joueur2.toString());
+
+        while(jeu){
+            System.out.println("Tour : Rexar:");
+            try {
+                plateau.joueurActuel().getHero().addManaMax(1);
+            }catch (maxManaException e){
+            }
+            //on mets les memes valeurs au mana max et au mana du joueur qui joue
+            plateau.joueurActuel().getHero().setMana(plateau.joueurActuel().getHero().getManamax());
+            plateau.pioche(plateau.joueurActuel());
+            //todo dessiner le terrain ennemie
+            //todo dessiner le terrain allier
+            //dessin de la main
+            plateau.joueurActuel().getMain().dessinerMain();
+            //fonction get
+
+
+        }
     }
 }
+
+

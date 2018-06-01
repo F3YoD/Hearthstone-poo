@@ -3,7 +3,6 @@ package com.home.effets;
 import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.carte.Serviteur;
-import com.home.exception.mauvaisIdException;
 
 public class Invocation extends Capacite {
     private int nbinvocation;
@@ -53,17 +52,15 @@ public class Invocation extends Capacite {
     }
 
     @Override
-    public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) {
+    public void realiser(Carte lanceur, Plateau pPlateau) {
         int i;
         Serviteur invocation = new Serviteur(this.getNomcarte(),0,this.getVie(),this.getAttaque());
         invocation.setPriorite(this.provo);
         for(i=0;i<this.nbinvocation;i++) {
-            try {
-                pPlateau.joueurActuel(pIdLanceur).getTerrain().ajouterCarte(invocation);
-            } catch (mauvaisIdException e) {
-            } //todo
-        }
+                pPlateau.joueurActuel().getTerrain().ajouterCarte(invocation);
+            }
     }
+
 
     @Override
     public boolean equals(Object obj) {

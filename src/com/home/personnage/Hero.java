@@ -1,6 +1,7 @@
 package com.home.personnage;
 
 import com.home.effets.Pouvoir;
+import com.home.exception.maxManaException;
 
 public class Hero {
 
@@ -10,6 +11,7 @@ public class Hero {
     private int vies;
     private Pouvoir pouvoir;
     private int mana;
+    private int manamax;
     private String nom;
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
@@ -19,6 +21,7 @@ public class Hero {
         this.setVies(pVies);
         this.setPouvoir(pPouvoir);
         this.mana=0;
+        this.manamax=0;
     }
 
     // ================================================================== \\
@@ -55,8 +58,23 @@ public class Hero {
         this.vies = pVies;
     }
 
+    public void setManamax(int manamax) throws maxManaException {
+        if(manamax>10){
+            throw new maxManaException("Mana au max");
+        }
+        this.manamax = manamax;
+    }
+
+    public int getManamax() {
+        return manamax;
+    }
+
     public void addVies(int pVies){
         this.vies += pVies;
+    }
+
+    public void addManaMax(int val) throws maxManaException{
+        this.setManamax(this.manamax+val);
     }
 
     public void addMana(int ajout){

@@ -3,7 +3,6 @@ package com.home.carte;
 import com.home.Environement.Plateau;
 import com.home.effets.Capacite;
 import com.home.exception.lowManaException;
-import com.home.exception.mauvaisIdException;
 
 public abstract class Carte {
     // ================================================================== \\
@@ -96,8 +95,8 @@ public abstract class Carte {
     }
 
 
-    public abstract void lancer(Plateau plateau) throws mauvaisIdException , lowManaException;
-    //tostring
+    public abstract void lancer(Plateau plateau)throws lowManaException;
+    //tostring todo
 
 
     @Override

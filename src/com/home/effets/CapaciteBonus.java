@@ -1,10 +1,8 @@
 package com.home.effets;
 
 import com.home.Environement.Plateau;
-import com.home.Environement.Terrain;
 import com.home.carte.Carte;
 import com.home.carte.Serviteur;
-import com.home.exception.mauvaisIdException;
 
 public class CapaciteBonus extends Capacite {
     private int paBonus;
@@ -34,8 +32,8 @@ public class CapaciteBonus extends Capacite {
     }
 
     @Override
-    public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) throws mauvaisIdException {
-        for(Serviteur item : pPlateau.joueurActuel(pIdLanceur).getTerrain().getLstCarte()){
+    public void realiser(Carte lanceur, Plateau pPlateau)  {
+        for(Serviteur item : pPlateau.joueurActuel().getTerrain().getLstCarte()){
             item.addDegats(this.paBonus);
             item.addVies(this.pvBonus);
         }
