@@ -24,7 +24,7 @@ public class Pioche extends Capacite {
     @Override
     public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) {
         int i;
-        for(i=0;i<this.nbpioche-1;i++){
+        for(i=0;i<this.nbpioche;i++){
             try {
                 pPlateau.pioche(pPlateau.joueurActuel(pIdLanceur));
                 }catch(mauvaisIdException e){} //TODO

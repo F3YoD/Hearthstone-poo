@@ -6,11 +6,12 @@ import com.home.carte.Serviteur;
 import com.home.exception.mauvaisIdException;
 
 public class Invocation extends Capacite {
+    private int nbinvocation;
     private String nomcarte;
     private int vie;
     private int attaque;
 
-    public Invocation(String nom,int pv,int degats){
+    public Invocation(String nom,int pv,int degats,int nbinvo){
         super("Invocation");
         this.setVie(pv);
         this.setAttaque(degats);
@@ -43,10 +44,14 @@ public class Invocation extends Capacite {
 
     @Override
     public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) {
+        int i;
         Serviteur invocation = new Serviteur(this.getNomcarte(),0,this.getVie(),this.getAttaque());
-        try{
-            pPlateau.joueurActuel(pIdLanceur).getTerrain().ajouterCarte(invocation);
-        }catch (mauvaisIdException e){} //todo
+        for(i=0;i<this.nbinvocation;i++) {
+            try {
+                pPlateau.joueurActuel(pIdLanceur).getTerrain().ajouterCarte(invocation);
+            } catch (mauvaisIdException e) {
+            } //todo
+        }
     }
 
     @Override
