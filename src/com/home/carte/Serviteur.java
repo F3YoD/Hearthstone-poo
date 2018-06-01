@@ -45,7 +45,7 @@ public class Serviteur extends Carte {
         return capacite;
     }
 
-    private void setVies(int pVie){
+    public void setVies(int pVie){
         if(pVie < 0)
             throw new IllegalArgumentException();
 
