@@ -37,7 +37,7 @@ public class Program {
         Serviteur c12 = new Serviteur("Busard affame",5,2,3,new Pioche(1));
         Sort c13 = new Sort("Marque du chasseur", 1,new MarqueDuChasseur());
         Sort c14 = new Sort("Tir des arcanes", 1,new AttaqueMentale(2));
-        Sort c15 = new Sort("Lachez les chiens",3,new Invocation("Lâchez les chiens",1,1,3,0));
+        Sort c15 = new Sort("Lachez les chiens",3,new Invocation("Lachez les chiens",1,1,3,0));
         Sort c16 = new Sort("Ordre de tuer",3,new Attaqueciblée("Ordre de tuer", 3));
 
         pDeck.add( c1);
