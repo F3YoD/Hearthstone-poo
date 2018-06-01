@@ -9,16 +9,18 @@ import com.home.exception.mauvaisIdException;
 public class CapaciteBonus extends Capacite {
     private int paBonus;
     private int pvBonus;
+    private String nom;
 
     /**
      * Booste les point d'attaque et de vie des alliées
-     * @param desc : description de la capacite
+     * @param nom : nom de la capacite
      * @param pa : point d'attaque bonus
      * @param pv : point de vie bonus
      * @author pierre/yoann
      */
-    public CapaciteBonus(String desc, int pa, int pv) {
-        super(desc);
+    public CapaciteBonus(String nom, int pa, int pv) {
+        super("Bonus");
+        this.nom=nom;
         this.setPaBonus(pa);
         this.setPvBonus(pv);
     }
