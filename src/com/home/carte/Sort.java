@@ -16,7 +16,7 @@ public class Sort extends Carte {
     }
 
     public void lancer(){
-        capacite.realiser(plateau);
+        capacite.realiser(plateau, 0);
     }
 
     @Override

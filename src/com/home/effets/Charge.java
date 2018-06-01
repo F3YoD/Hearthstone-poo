@@ -18,7 +18,7 @@ public class Charge extends Capacite {
 
     @Override
     public void realiser(Plateau pPlateau, int pIdLanceur) {
-        
+
     }
 
     public String getDescription(){
