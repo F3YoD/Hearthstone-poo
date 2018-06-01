@@ -9,6 +9,8 @@ import com.home.effets.*;
 import com.home.exception.maxManaException;
 import com.home.personnage.*;
 
+import java.util.Scanner;
+
 public class Program {
 
     public static void main(String argv[]) {
@@ -196,6 +198,29 @@ public class Program {
 
 
         }
+    }
+
+    /**
+     * le sous programme demande au joueur ce qu'il veut faire que le joueur veut faire
+     * @return
+     */
+    public int getChoix(){
+        Scanner sc = new Scanner(System.in);
+        int choix;
+        do{
+            System.out.println("************************************faite un choix :");
+            System.out.println("1) posez 1 carte (taper 1)");
+            System.out.println("2) attaquez avec une carte (taper 2)");
+            System.out.println("3) utiliser la capacitée du héro (taper 3)");
+            System.out.println("4) passez le tour (taper 4)");
+
+            choix = sc.nextInt();
+            if(choix < 1 || choix > 4)
+                System.out.println("erreure de saisie, recommancer");
+
+        }while(choix < 1 || choix > 4);
+
+        return choix;
     }
 }
 
