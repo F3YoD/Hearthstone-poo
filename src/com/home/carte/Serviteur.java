@@ -18,6 +18,8 @@ public class Serviteur extends Carte {
         super(pNom, pCout);
         this.setDegats(pDegats);
         this.setVies(pVies);
+        this.setPriorite(0);
+        this.setAttente(1);
     }
 
     // ================================================================== \\
