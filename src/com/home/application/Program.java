@@ -8,6 +8,7 @@ import com.home.carte.*;
 import com.home.effets.*;
 import com.home.exception.mauvaisIdException;
 import com.home.personnage.*;
+import java.util.*;
 
 public class Program {
 
@@ -146,5 +147,28 @@ public class Program {
         m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
         System.out.println(m.dessinerMain());
 
+    }
+
+    /**
+     * le sous programme demande au joueur ce qu'il veut faire que le joueur veut faire
+     * @return
+     */
+    public int getChoix(){
+        Scanner sc = new Scanner(System.in);
+        int choix;
+        do{
+            System.out.println("************************************faite un choix :");
+            System.out.println("1) posez 1 carte (taper 1)");
+            System.out.println("2) attaquez avec une carte (taper 2)");
+            System.out.println("3) utiliser la capacitée du héro (taper 3)");
+            System.out.println("4) passez le tour (taper 4)");
+
+            choix = sc.nextInt();
+            if(choix < 1 || choix > 4)
+                System.out.println("erreure de saisie, recommancer");
+
+        }while(choix < 1 || choix > 4);
+
+        return choix;
     }
 }
