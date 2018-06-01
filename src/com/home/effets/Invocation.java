@@ -54,7 +54,7 @@ public class Invocation extends Capacite {
     @Override
     public void realiser(Carte lanceur, Plateau pPlateau) {
         int i;
-        Serviteur invocation = new Serviteur(this.getNomcarte(),0,this.getVie(),this.getAttaque());
+        Serviteur invocation = new Serviteur(this.getNomcarte(),1,this.getVie(),this.getAttaque());
         invocation.setPriorite(this.provo);
         for(i=0;i<this.nbinvocation;i++) {
                 pPlateau.joueurActuel().getTerrain().ajouterCarte(invocation);

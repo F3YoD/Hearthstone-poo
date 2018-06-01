@@ -2,8 +2,10 @@ package com.home.carte;
 
 import com.home.Environement.Plateau;
 import com.home.effets.Capacite;
+import com.home.exception.attenteException;
 import com.home.exception.lowManaException;
 import com.home.exception.noLifeException;
+import com.home.exception.provocationException;
 
 public class Serviteur extends Carte {
     // ================================================================== \\
@@ -88,7 +90,14 @@ public class Serviteur extends Carte {
      }
 
 
-    public void attaque(Plateau p,Serviteur cible){
+    public void attaque(Plateau p,Serviteur cible) throws attenteException, provocationException {
+        if(this.attente>0){
+            throw new attenteException("Ne peut pas attaquer ce tour ci");
+        }
+        if(cible.getPriorite()!=1 && p.joueurAAttaquer().getTerrain().provocation()){
+            throw new provocationException("Il y a une carte qui provoque");
+        }
+
         try {
             cible.prendDamage(this.nbDegats);
         }catch (noLifeException e){

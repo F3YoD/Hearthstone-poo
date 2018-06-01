@@ -67,6 +67,15 @@ public class Terrain {
         return fin;
     }
 
+    public boolean provocation(){
+        for (Serviteur s : this.lstCarte){
+            if (s.getPriorite()==1){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void ajouterServiteur(Serviteur s){
         this.lstCarte.add(s);
     }
@@ -88,7 +97,7 @@ public class Terrain {
 
     public String dessinerTerrain(){
         if (this.lstCarte.isEmpty()){
-            return "Main vide";
+            return "Terrain vide";
         }
         String fin="";
         for (Carte c:this.lstCarte){
@@ -133,5 +142,6 @@ public class Terrain {
         fin += "\n";
         return fin;
     }
+
 
 }
