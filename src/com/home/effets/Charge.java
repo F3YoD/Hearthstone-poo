@@ -1,5 +1,6 @@
 package com.home.effets;
 
+import com.home.Environement.Plateau;
 import com.home.carte.Serviteur;
 
 import java.util.ArrayList;
@@ -14,6 +15,12 @@ public class Charge extends Capacite {
     public void setDescription(String desc){
         this.description = desc;
     }
+
+    @Override
+    public void realiser(Plateau pPlateau, int pIdLanceur) {
+        
+    }
+
     public String getDescription(){
         return this.description;
     }
