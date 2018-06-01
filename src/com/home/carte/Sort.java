@@ -2,6 +2,7 @@ package com.home.carte;
 
 import com.home.Environement.Plateau;
 import com.home.effets.*;
+import com.home.exception.mauvaisIdException;
 
 public class Sort extends Carte {
 
@@ -15,7 +16,7 @@ public class Sort extends Carte {
         this.plateau = pPlateau;
     }
 
-    public void lancer(){
+    public void lancer() throws mauvaisIdException {
         capacite.realiser(this,plateau, plateau.getIdJoueurActuel());
     }
 
