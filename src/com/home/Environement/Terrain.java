@@ -1,35 +1,36 @@
 package com.home.Environement;
 
 import com.home.carte.Carte;
+import com.home.carte.Serviteur;
 
 import java.util.ArrayList;
 
 public class Terrain {
-    private ArrayList<Carte> lstCarte;
+    private ArrayList<Serviteur> lstCarte;
 
     public Terrain(){
-        this.lstCarte = new ArrayList<Carte>();
+        this.lstCarte = new ArrayList<Serviteur>();
     }
-    public Terrain (ArrayList<Carte> liste){
-        this.setLstCarte(liste);
+    public Terrain (ArrayList<Serviteur> pListe){
+        this.setLstCarte(pListe);
     }
     //getter/setter
-    public void setLstCarte(ArrayList<Carte> liste){
+    public void setLstCarte(ArrayList<Serviteur> liste){
         this.lstCarte=liste;
     }
-    public ArrayList<Carte> getLstCarte(){
+    public ArrayList<Serviteur> getLstCarte(){
         return this.lstCarte;
     }
 
     //methodes
 
-    public void ajouterCarte(Carte carte){
+    public void ajouterCarte(Serviteur carte){
         this.lstCarte.add(carte);
     }
-    public void supprimerCarte(Carte carte){ //todo a tester
+    public void supprimerCarte(Serviteur carte){ //todo a tester
         this.lstCarte.remove(carte);
     }
-    public boolean estPrésente(Carte carte){
+    public boolean estPrésente(Serviteur carte){
         return this.lstCarte.contains(carte);
     }
 

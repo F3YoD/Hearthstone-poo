@@ -35,7 +35,7 @@ public class Serviteur extends Carte {
         this.nbVies = pVie;
     }
 
-    private void setDegats(int pDegats){
+    public void setDegats(int pDegats){
         if(pDegats < 0)
             throw new IllegalArgumentException();
 

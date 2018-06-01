@@ -2,6 +2,7 @@ package com.home.effets;
 
 import com.home.Environement.Plateau;
 import com.home.carte.Carte;
+import com.home.carte.Serviteur;
 import com.home.effets.Capacite;
 
 public class CapaciteDegatMassive extends Capacite {
@@ -16,12 +17,15 @@ public class CapaciteDegatMassive extends Capacite {
     @Override
     public void realiser(Plateau pPlateau,  int pIdLanceur) {
         if(pIdLanceur == 1){
-            for(Carte s : pPlateau.getJoueur1().getTerrain().getLstCarte()){
-
+            for(Serviteur s : pPlateau.getJoueur1().getTerrain().getLstCarte()){
+                s.setDegats(this.degat);
             }
 
         }else{
             // cible == 2
+            for(Serviteur s : pPlateau.getJoueur2().getTerrain().getLstCarte()){
+                s.setDegats(this.degat);
+            }
         }
     }
 
