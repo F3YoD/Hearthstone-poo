@@ -35,7 +35,7 @@ public class Attaqueciblée extends Capacite {
 
     public void realiser(Carte lanceur, Plateau plat, int idLanceur){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Qui voulez vous attaquer ? (Si vous voulez attaquer le Héro adverse marquez hero sinon le nom de la carte \n) ");
+        System.out.println("Qui voulez vous attaquer ? (Si vous voulez attaquer le Héro adverse marquez hero sinon le nom de la carte) \n ");
         String cherche =sc.nextLine();
         if (cherche=="hero"){
              try {
