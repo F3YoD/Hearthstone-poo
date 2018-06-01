@@ -130,5 +130,13 @@ public class Program {
         c3.getCapacite().realiser(c3,p,2);
         System.out.println(p.getJoueur1().getHero().toString());
         System.out.println("\033[32m******************************************* FIN PARTIE\033[0m");
+
+        Main m = new Main();
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(5));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(6));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(7));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(8));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+
     }
 }
