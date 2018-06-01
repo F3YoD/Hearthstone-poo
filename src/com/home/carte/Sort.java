@@ -16,7 +16,7 @@ public class Sort extends Carte {
     }
 
     public void lancer(){
-        capacite.realiser(plateau, 0);
+        capacite.realiser(this,plateau, plateau.getIdJoueurActuel());
     }
 
     @Override

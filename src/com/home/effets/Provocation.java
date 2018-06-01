@@ -14,12 +14,12 @@ public class Provocation extends Capacite {
 
     @Override
     public void realiser(Carte pLanceur, Plateau pPlateau, int pIdLanceur) {
-        ((Serviteur) pLanceur).setAttente(1);
+        ((Serviteur) pLanceur).setPriorite(1);
     }
 
     @Override
     public String getDescription() {
-        return null;
+        return "Provocation";
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Provocation extends Capacite {
     public String toString() {
         return null;
     }
-    
+
     public boolean equals() {
         return false;
     }

@@ -3,6 +3,8 @@ package com.home.effets;
 import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.carte.Serviteur;
+import com.home.exception.mauvaisIdException;
+
 import java.util.ArrayList;
 
 public abstract class Capacite {
@@ -11,7 +13,7 @@ public abstract class Capacite {
     }
     protected String description;
 
-    public abstract void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur); // 0 = aucun 1 = j1 2 = j2
+    public abstract void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) throws mauvaisIdException; // 0 = aucun 1 = j1 2 = j2
     public String getDescription(){
         return this.description;
     }

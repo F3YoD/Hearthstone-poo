@@ -6,11 +6,12 @@ import com.home.Environement.Plateau;
 import com.home.Environement.Terrain;
 import com.home.carte.*;
 import com.home.effets.*;
+import com.home.exception.mauvaisIdException;
 import com.home.personnage.*;
 
 public class Program {
 
-    public static void main(String argv[]){
+    public static void main(String argv[]) throws mauvaisIdException {
         Pouvoir feu = new Feu();
         Pouvoir force = new Force();
 
@@ -39,6 +40,8 @@ public class Program {
         //System.out.println("" + plateau.toString());
         System.out.println("" + joueur1.toString());
         System.out.println("" + joueur2.toString());
+
+        startPartie(plateau);
     }
     
     public static void InitDeckRexar(Deck pDeck){
@@ -55,5 +58,13 @@ public class Program {
 
         pDeck.add(c1);
         pDeck.add(c2);
+    }
+
+    public static void startPartie(Plateau p) throws mauvaisIdException {
+        System.out.println("******************************************* DEBUT PARTIE");
+        System.out.println(p.getJoueur2().getHero().toString());
+        p.joueurAAttaquer(p.getIdJoueurActuel()).getHero().addVies(-1);
+        System.out.println(p.getJoueur2().getHero().toString());
+        System.out.println("******************************************* FIN PARTIE");
     }
 }
