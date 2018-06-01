@@ -16,8 +16,10 @@ public class Sort extends Carte {
         this.plateau = pPlateau;
     }
 
-    public void lancer() throws mauvaisIdException {
-        capacite.realiser(this,plateau, plateau.getIdJoueurActuel());
+    public void lancer() {
+        try {
+            capacite.realiser(this, plateau, plateau.getIdJoueurActuel());
+        }catch (mauvaisIdException e){  }    //todo
     }
 
     @Override
