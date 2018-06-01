@@ -31,7 +31,6 @@ public abstract class Carte {
     public void setNom(String pNom) throws IllegalArgumentException {
         if(pNom.trim().equals(""))
             throw new IllegalArgumentException();
-
         this.nom = pNom;
     }
 
@@ -41,7 +40,6 @@ public abstract class Carte {
 
         this.cout = pCout;
     }
-
 
 
     public abstract void lancer(Plateau plateau) throws mauvaisIdException , lowManaException;
