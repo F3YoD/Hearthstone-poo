@@ -14,7 +14,6 @@ public class Serviteur extends Carte {
     private int nbDegats;
     private int priorite;
     private int attente;
-    private Capacite capacite;
 
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
@@ -27,12 +26,11 @@ public class Serviteur extends Carte {
         this.setAttente(1);
     }
     public Serviteur(String pNom, int pCout, int pVies, int pDegats,Capacite cap) throws IllegalArgumentException {
-        super(pNom, pCout);
+        super(pNom, pCout,cap);
         this.setDegats(pDegats);
         this.setVies(pVies);
         this.setPriorite(0);
         this.setAttente(1);
-        this.setCapacite(cap);
     }
     public Serviteur(){};
 
@@ -44,9 +42,7 @@ public class Serviteur extends Carte {
     public int getPriorite(){return this.priorite;}
     public int getAttente(){return this.attente;}
 
-    public Capacite getCap() {
-        return capacite;
-    }
+
 
     public void setVies(int pVie){
         if(pVie < 0)
@@ -55,9 +51,7 @@ public class Serviteur extends Carte {
         this.nbVies = pVie;
     }
 
-    public void setCapacite(Capacite cap) {
-        this.capacite = cap;
-    }
+
 
     public void setDegats(int pDegats){
         if(pDegats < 0)
@@ -94,6 +88,26 @@ public class Serviteur extends Carte {
     }
 
     @Override
+    public String dessinerMidCarte4(){
+        String fin = "|                \033[31mpv:"+ this.nbVies ;
+        while (fin.length()<29+5+8){
+            fin += " ";
+        }
+        fin += "\033[0m|";
+        return fin;
+    }
+
+    @Override
+    public String dessinerMidCarte5(){
+        String fin = "|               deg:"+ this.nbDegats;
+        while (fin.length()<29+8){
+            fin += " ";
+        }
+        fin +="|";
+        return fin;
+    }
+
+    @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
@@ -107,7 +121,7 @@ public class Serviteur extends Carte {
             //ajout de la carte au terrain
             plateau.joueurActuel(plateau.getIdJoueurActuel()).getTerrain().ajouterCarte(this);
             //on effectue la capacitée de la carte
-            this.getCap().realiser(this,plateau,plateau.getIdJoueurActuel());
+            this.getCapacite().realiser(this,plateau,plateau.getIdJoueurActuel());
             //suppression de la carte de la main
             plateau.joueurActuel(plateau.getIdJoueurActuel()).getMain().supprimerCarte(this);
         }catch (mauvaisIdException e)  {} //TODO

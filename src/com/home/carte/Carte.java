@@ -22,6 +22,12 @@ public abstract class Carte {
             this.setCout(pCout);
     }
 
+    public Carte(String pNom, int pCout,Capacite cap) {
+        this.setNom(pNom);
+        this.setCout(pCout);
+        this.setCapacite(cap);
+    }
+
     // ================================================================== \\
     // =========================== GETS/SETS ============================ \\
     // ================================================================== \\
@@ -39,6 +45,54 @@ public abstract class Carte {
             throw new IllegalArgumentException();
 
         this.cout = pCout;
+    }
+
+    public void setCapacite(Capacite capacite) {
+        this.capacite = capacite;
+    }
+
+    public Capacite getCapacite() {
+        return capacite;
+    }
+
+    public String dessinerHautCarte(){
+        return " ____________________________________ ";
+    }
+    public String dessinerMidCarte1(){
+        return "|                                    |";
+    }
+    public String dessinerMidCarte2(){
+        String fin = "|      \033[32mnom:"+ this.nom ;
+        while (fin.length()<29+5+8){
+            fin += " ";
+        }
+        fin += "\033[0m|";
+        return fin;
+    }
+    public String dessinerMidCarte3(){
+        String fin ="|               \033[34mcout:"+this.cout;
+        while (fin.length()<29+8+5){
+            fin += " ";
+        }
+        fin += "\033[0m|";
+        return fin;
+    }
+    public String dessinerMidCarte4(){
+        return "|                                    |";
+    }
+    public String dessinerMidCarte5(){
+        return "|                                    |";
+    }
+    public String dessinerMidCarte6(){
+        String fin ="|      \033[33mcap:"+this.capacite.getDescription();
+        while (fin.length()<29+5+8){
+            fin += " ";
+        }
+        fin += "\033[0m|";
+        return fin;
+    }
+    public String dessinerBasCarte(){
+        return "|____________________________________|";
     }
 
 

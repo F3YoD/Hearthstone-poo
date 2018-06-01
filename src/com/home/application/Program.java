@@ -127,7 +127,7 @@ public class Program {
         System.out.println("******************************************* DEBUT PARTIE");
         System.out.println(p.getJoueur1().getHero().toString());
         Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new AttaqueMentale(5));
-        c3.getCap().realiser(c3,p,2);
+        c3.getCapacite().realiser(c3,p,2);
         System.out.println(p.getJoueur1().getHero().toString());
         System.out.println("\033[32m******************************************* FIN PARTIE\033[0m");
     }
