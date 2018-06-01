@@ -45,7 +45,7 @@ public class Program {
     }
     
     public static void InitDeckRexar(Deck pDeck){
-        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1));
+        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
         Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
         Serviteur c4 = new Serviteur("Champion de hurlevent",7,6,6,
@@ -56,13 +56,13 @@ public class Program {
         Serviteur c8 = new Serviteur("L'ogre-magi",4,4,4,new Provocation());
         Serviteur c9 = new Serviteur("Archimage",6,7,4,new Provocation());
         Serviteur c10 = new Serviteur("Gnôme lépreux", 1,1,1,new AttaqueMentale(2));
-        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golemisation",1,2,1));
+        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomagé",1,2,1,0));
 
         // carte specifique a Rexar
         Serviteur c12 = new Serviteur("Busard affamé",5,2,3,new Pioche(1));
         Sort c13 = new Sort("Marque du chasseur", 1,new MarqueDuChasseur());
         Sort c14 = new Sort("Tir des arcanes", 1,new AttaqueMentale(2));
-        Sort c15 = new Sort("Lâchez les chiens",3,new Invocation("Lâchez les chiens",1,1,3));
+        Sort c15 = new Sort("Lâchez les chiens",3,new Invocation("Lâchez les chiens",1,1,3,0));
         Sort c16 = new Sort("Ordre de tuer",3,new Attaqueciblée("Ordre de tuer", 3));
 
         pDeck.add( c1);
@@ -85,7 +85,7 @@ public class Program {
     }
 
     public static void InitDeckJaina(Deck pDeck){
-        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1));
+        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("Murloc", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
         Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
         Serviteur c4 = new Serviteur("Champion de hurlevent",7,6,6,
@@ -96,13 +96,13 @@ public class Program {
         Serviteur c8 = new Serviteur("L'ogre-magi",4,4,4,new Provocation());
         Serviteur c9 = new Serviteur("Archimage",6,7,4,new Provocation());
         Serviteur c10 = new Serviteur("Gnôme lépreux", 1,1,1,new AttaqueMentale(2));
-        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golemisation",1,2,1));
+        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomagé",1,2,1,0));
 
         // carte specifique a Jaina
         Sort c12 = new Sort("Choc de flamme",7,new CapaciteDegatMassive(4));
         Sort c13 = new Sort("Eclair de givre", 2, new Attaqueciblée("Attaque du givre",3));
         Sort c14 = new Sort("Intelligence des arcanes", 2,new Pioche(2));
-        Sort c15 = new Sort("Image mirroir", 1, new Invocation("Image Mirroir", 2,0,2)); // todo provocation + invoc
+        Sort c15 = new Sort("Image mirroir", 1, new Invocation("Image Mirroir", 2,0,2,1)); // todo provocation + invoc
         Sort c16 = new Sort("Explosion pyrotechnique", 10,new Attaqueciblée("Explosion pyrotechnique",10));
 
         pDeck.add( c1);
