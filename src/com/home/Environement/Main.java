@@ -1,6 +1,8 @@
 package com.home.Environement;
 
 import com.home.carte.Carte;
+import com.home.carte.Serviteur;
+import com.home.exception.noCarteException;
 
 import java.util.ArrayList;
 
@@ -98,6 +100,28 @@ public class Main {
             fin += "  ";
         }
         fin += "\n";
+        return fin;
+    }
+
+    public boolean estPresente(String nom){
+        for (Carte s : this.liste_carte){
+            if (s.getNom().trim().equals(nom)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Carte Findwithname(String nom) throws noCarteException {
+        Serviteur fin= new Serviteur();
+        if (!this.estPresente(nom)){
+            throw new noCarteException("Cette carte n'existe pas");
+        }
+        for(Carte c : this.liste_carte){
+            if (c.getNom().trim().equals(nom)){
+                return c;
+            }
+        }
         return fin;
     }
 

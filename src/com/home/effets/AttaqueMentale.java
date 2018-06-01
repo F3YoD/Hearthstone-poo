@@ -2,6 +2,7 @@ package com.home.effets;
 
 import com.home.Environement.Plateau;
 import com.home.carte.Carte;
+import com.home.exception.noLifeException;
 
 public class AttaqueMentale extends Capacite{
     private int degats;
@@ -20,7 +21,12 @@ public class AttaqueMentale extends Capacite{
     }
 
     @Override
-    public void realiser(Carte lanceur, Plateau pPlateau) {
-        pPlateau.joueurAAttaquer().getHero().addVies(- this.degats);
+    public void realiser(Carte lanceur, Plateau pPlateau){
+        try{
+        pPlateau.joueurAAttaquer().getHero().prendDegats(this.degats);
+        }catch (noLifeException e){
+            System.out.println(pPlateau.joueurActuel().getHero().getNom()+ "gagne \n");
+            System.exit(0);
+        }
     }
 }

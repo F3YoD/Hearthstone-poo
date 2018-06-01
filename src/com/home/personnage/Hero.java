@@ -2,6 +2,7 @@ package com.home.personnage;
 
 import com.home.effets.Pouvoir;
 import com.home.exception.maxManaException;
+import com.home.exception.noLifeException;
 
 public class Hero {
 
@@ -75,6 +76,13 @@ public class Hero {
 
     public void addManaMax(int val) throws maxManaException{
         this.setManamax(this.manamax+val);
+    }
+
+    public void prendDegats(int deg)throws noLifeException {
+        this.vies=this.vies -deg;
+        if (this.vies<1){
+            throw new noLifeException("Le héros est mort");
+        }
     }
 
     public void addMana(int ajout){

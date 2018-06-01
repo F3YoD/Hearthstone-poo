@@ -1,5 +1,6 @@
 package com.home.effets;
 
+import com.home.exception.noLifeException;
 import com.home.personnage.Hero;
 
 public class Feu implements Pouvoir{
@@ -11,7 +12,7 @@ public class Feu implements Pouvoir{
     // =========================== OVERRIDES ============================ \\
     // ================================================================== \\
     @Override
-    public void lancer(Hero pH) {
-        pH.addVies(-1);
+    public void lancer(Hero pH) throws noLifeException {
+        pH.prendDegats(1);
     }
 }

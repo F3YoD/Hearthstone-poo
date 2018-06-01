@@ -47,7 +47,7 @@ public class Terrain {
 
     public boolean estPresente(String nom){
         for (Serviteur s : this.lstCarte){
-            if (s.getNom()==nom){
+            if (s.getNom().trim().equals(nom)){
                 return true;
             }
         }
@@ -60,7 +60,7 @@ public class Terrain {
             throw new noCarteException("Cette carte n'existe pas");
         }
         for(Serviteur s : this.lstCarte){
-            if (s.getNom()==nom){
+            if (s.getNom().trim().equals(nom)){
                 return s;
             }
         }
@@ -83,6 +83,54 @@ public class Terrain {
         for (Carte i : this.lstCarte){
             fin += i.toString() +"\n";
         }
+        return fin;
+    }
+
+    public String dessinerTerrain(){
+        if (this.lstCarte.isEmpty()){
+            return "Main vide";
+        }
+        String fin="";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerHautCarte();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerMidCarte1();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerMidCarte2();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerMidCarte3();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerMidCarte4();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerMidCarte5();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerMidCarte6();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.lstCarte){
+            fin += c.dessinerBasCarte();
+            fin += "  ";
+        }
+        fin += "\n";
         return fin;
     }
 

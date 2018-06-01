@@ -76,6 +76,15 @@ public class Plateau {
         }
     }
 
+    public void changementJoueur(){
+        if (this.getIdJoueurActuel()==1){
+            this.setIdJoueurActuel(2);
+        }
+        else{
+            this.setIdJoueurActuel(1);
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         return super.equals(o);

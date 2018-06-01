@@ -3,6 +3,7 @@ package com.home.carte;
 import com.home.Environement.Plateau;
 import com.home.effets.Capacite;
 import com.home.exception.lowManaException;
+import com.home.exception.noLifeException;
 
 public class Serviteur extends Carte {
     // ================================================================== \\
@@ -78,6 +79,21 @@ public class Serviteur extends Carte {
     public void addDegats(int pAjout){
         int res = this.getDegats() + pAjout;
         this.setDegats(res);
+    }
+     public void prendDamage(int degats)throws noLifeException {
+        this.nbVies=this.nbVies -degats;
+        if (this.nbVies<1){
+            throw new noLifeException("Ce serviteur est mort");
+        }
+     }
+
+
+    public void attaque(Plateau p,Serviteur cible){
+        try {
+            cible.prendDamage(this.nbDegats);
+        }catch (noLifeException e){
+            p.joueurAAttaquer().getTerrain().getLstCarte().remove(this);
+        }
     }
 
     public void addVies(int pAjout){

@@ -6,7 +6,10 @@ import com.home.Environement.Plateau;
 import com.home.Environement.Terrain;
 import com.home.carte.*;
 import com.home.effets.*;
+import com.home.exception.lowManaException;
 import com.home.exception.maxManaException;
+import com.home.exception.noCarteException;
+import com.home.exception.noLifeException;
 import com.home.personnage.*;
 
 import java.util.Scanner;
@@ -14,36 +17,8 @@ import java.util.Scanner;
 public class Program {
 
     public static void main(String argv[]) {
-        Pouvoir feu = new Feu();
-        Pouvoir force = new Force();
+        game();
 
-        // INIT HERO
-        Hero rexar = new Hero("rexar", 15, force);
-        Hero jaina = new Hero("jaina", 15, feu);
-        //Init mains
-        Main mainRexar = new Main();
-        Main mainJaina = new Main();
-        //Init Terrains
-        Terrain terrainRexar=new Terrain();
-        Terrain terrainJaina=new Terrain();
-        // INIT CARTES
-        Deck deckRexar = new Deck();
-        Deck deckJaina = new Deck();
-        InitDeckRexar(deckRexar);
-        InitDeckJaina(deckJaina);
-        //init players
-        Player joueur1 = new Player(rexar,deckRexar,mainRexar,terrainRexar);
-        Player joueur2 = new Player(jaina,deckJaina,mainJaina,terrainJaina);
-        //init plateau
-        Plateau plateau= new Plateau(joueur1,joueur2);
-
-        joueur1.getHero().getPouvoir().lancer(joueur2.getHero());
-
-        //System.out.println("" + plateau.toString());
-        System.out.println("" + joueur1.toString());
-        System.out.println("" + joueur2.toString());
-
-        startPartie(plateau);
     }
 
     public static void InitDeckRexar(Deck pDeck){
@@ -150,7 +125,7 @@ public class Program {
 
     }
 
-    public static void jeu (){
+    public static void game (){
         Pouvoir feu = new Feu();
         Pouvoir force = new Force();
         boolean jeu=true;
@@ -175,14 +150,10 @@ public class Program {
         //init plateau
         Plateau plateau= new Plateau(joueur1,joueur2);
 
-        joueur1.getHero().getPouvoir().lancer(joueur2.getHero());
 
-        //System.out.println("" + plateau.toString());
-        System.out.println("" + joueur1.toString());
-        System.out.println("" + joueur2.toString());
 
         while(jeu){
-            System.out.println("Tour : Rexar:");
+            System.out.println("Tour :" + plateau.joueurActuel().getHero().getNom() + "\n");
             try {
                 plateau.joueurActuel().getHero().addManaMax(1);
             }catch (maxManaException e){
@@ -190,21 +161,21 @@ public class Program {
             //on mets les memes valeurs au mana max et au mana du joueur qui joue
             plateau.joueurActuel().getHero().setMana(plateau.joueurActuel().getHero().getManamax());
             plateau.pioche(plateau.joueurActuel());
-            //todo dessiner le terrain ennemie
-            //todo dessiner le terrain allier
-            //dessin de la main
+            dessiner(plateau);
             plateau.joueurActuel().getMain().dessinerMain();
-            //fonction get
+            int joueuractuel=plateau.getIdJoueurActuel();
+            while(joueuractuel == plateau.getIdJoueurActuel()){
+                tour(plateau);
+            }
+        }
 
 
         }
-    }
-
     /**
      * le sous programme demande au joueur ce qu'il veut faire que le joueur veut faire
      * @return
      */
-    public int getChoix(){
+    public static int getChoix(){
         Scanner sc = new Scanner(System.in);
         int choix;
         do{
@@ -222,6 +193,59 @@ public class Program {
 
         return choix;
     }
+
+    public static void tour(Plateau p){
+        Scanner sc = new Scanner(System.in);
+        int choix =getChoix();
+        if (choix == 1){
+            System.out.println("Qui voulez vous jouer ? (tapez le nom de la carte en entier)\n");
+            String cherche =sc.nextLine();
+            try {
+                Carte c = p.joueurActuel().getMain().Findwithname(cherche.trim());
+                c.lancer(p);
+            }catch (noCarteException e){
+                System.out.println("Cette carte n'est pas présente \n");
+            }catch (lowManaException e1){
+                System.out.println("Vous n'avez pas assez de mana \n");
+            }
+        }else if(choix==2){
+            System.out.println("Avec qui voulez vous attaquer ? (Tapez le nom de la carte en entier) \n");
+            String cherche =sc.nextLine();
+            System.out.println("Qui voulez vous attaquer ? ");
+            String cherche2=sc.nextLine();
+            try {
+                Serviteur s = p.joueurActuel().getTerrain().Findwithname(cherche.trim());
+                Serviteur cible = p.joueurAAttaquer().getTerrain().Findwithname(cherche2.trim());
+                s.attaque(p,cible);
+            }catch (noCarteException e){
+                System.out.println("Un des deux ou les deux serviteurs ne sont pas sur le terrain \n");
+            }
+        }else if(choix==3){
+            try{
+                p.joueurActuel().getHero().getPouvoir().lancer(p.joueurAAttaquer().getHero());
+            }catch (noLifeException e){
+                System.out.println(p.joueurActuel().getHero().getNom() +"a gagné");
+                System.exit(0);
+            }
+        }else if(choix==4){
+            p.changementJoueur();
+        }
+    }
+
+    public static void dessiner(Plateau p){
+        //On dessine le terrain ennemi
+        System.out.println("Terrain ennemie :\n");
+        p.joueurAAttaquer().getTerrain().dessinerTerrain();
+        //On dessine le terrain du joueur
+        System.out.println("Votre terrain :\n");
+        p.joueurActuel().getTerrain().dessinerTerrain();
+        //on dessine notre main
+        System.out.println("Votre Main :\n");
+        p.joueurActuel().getMain().dessinerMain();
+    }
 }
+
+
+
 
 
