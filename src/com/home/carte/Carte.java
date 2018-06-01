@@ -2,7 +2,7 @@ package com.home.carte;
 
 import com.home.effets.Capacite;
 
-public class Carte {
+public abstract class Carte {
     // ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\
     // ================================================================== \\
@@ -36,6 +36,8 @@ public class Carte {
 
         this.cout = pCout;
     }
+
+    public abstract void lancer();
     //tostring
 
 

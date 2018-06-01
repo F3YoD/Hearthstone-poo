@@ -73,4 +73,7 @@ public class Serviteur extends Carte {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
+    public void lancer(){
+
+    }
 }
