@@ -137,6 +137,14 @@ public class Program {
         m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(7));
         m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(8));
         m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        m.getListecarte().add(p.getJoueur1().getDeck().getLstCarte().get(9));
+        System.out.println(m.dessinerMain());
 
     }
 }

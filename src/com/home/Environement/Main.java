@@ -53,6 +53,54 @@ public class Main {
         return fin;
     }
 
+    public String dessinerMain(){
+        if (this.liste_carte.isEmpty()){
+            return "Main vide";
+        }
+        String fin="";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerHautCarte();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerMidCarte1();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerMidCarte2();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerMidCarte3();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerMidCarte4();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerMidCarte5();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerMidCarte6();
+            fin += "  ";
+        }
+        fin += "\n";
+        for (Carte c:this.liste_carte){
+            fin += c.dessinerBasCarte();
+            fin += "  ";
+        }
+        fin += "\n";
+        return fin;
+    }
+
     public void supprimerCarte(Carte c){
         this.liste_carte.remove(c);
     }
