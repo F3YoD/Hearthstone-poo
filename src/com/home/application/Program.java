@@ -6,10 +6,7 @@ import com.home.Environement.Plateau;
 import com.home.Environement.Terrain;
 import com.home.carte.*;
 import com.home.effets.*;
-import com.home.exception.lowManaException;
-import com.home.exception.maxManaException;
-import com.home.exception.noCarteException;
-import com.home.exception.noLifeException;
+import com.home.exception.*;
 import com.home.personnage.*;
 
 import java.util.Scanner;
@@ -17,23 +14,24 @@ import java.util.Scanner;
 public class Program {
 
     public static void main(String argv[]) {
+
         game();
 
     }
 
     public static void InitDeckRexar(Deck pDeck){
-        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1,0));
+        Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
         Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
         Serviteur c4 = new Serviteur("Champion de hurlevent",7,6,6,
                 new CapaciteBonus("Bonus de Hurlevent",1,1));
         Serviteur c5 = new Serviteur("Chef de raid",3,2,2, new CapaciteBonus("Bonus du chef de guerre",1,0));
         Serviteur c6 = new Serviteur("Garde de Baie-du-butin",5,4,5,new Provocation());
-        Serviteur c7 = new Serviteur("La missilière téméraire",6,2,5,new Charge());
+        Serviteur c7 = new Serviteur("La missilière temeraire",6,2,5,new Charge());
         Serviteur c8 = new Serviteur("L'ogre-magi",4,4,4,new Provocation());
         Serviteur c9 = new Serviteur("Archimage",6,7,4,new Provocation());
-        Serviteur c10 = new Serviteur("Gnôme lépreux", 1,1,1,new AttaqueMentale(2));
-        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomagé",1,2,1,0));
+        Serviteur c10 = new Serviteur("Gnôme lepreux", 1,1,1,new AttaqueMentale(2));
+        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomage",1,2,1,0));
 
         // carte specifique a Rexar
         Serviteur c12 = new Serviteur("Busard affamé",5,2,3,new Pioche(1));
@@ -62,18 +60,18 @@ public class Program {
     }
 
     public static void InitDeckJaina(Deck pDeck){
-        Serviteur c1 = new Serviteur("Chasse-marrée murloc", 2, 1, 2, new Invocation("Murloc", 1, 1, 1,0));
+        Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("Murloc", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
         Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
         Serviteur c4 = new Serviteur("Champion de hurlevent",7,6,6,
                 new CapaciteBonus("Bonus de Hurlevent",1,1));
         Serviteur c5 = new Serviteur("Chef de raid",3,2,2, new CapaciteBonus("Bonus du chef de guerre",1,0));
         Serviteur c6 = new Serviteur("Garde de Baie-du-butin",5,4,5,new Provocation());
-        Serviteur c7 = new Serviteur("La missilière téméraire",6,2,5,new Charge());
+        Serviteur c7 = new Serviteur("La missilière temeraire",6,2,5,new Charge());
         Serviteur c8 = new Serviteur("L'ogre-magi",4,4,4,new Provocation());
         Serviteur c9 = new Serviteur("Archimage",6,7,4,new Provocation());
-        Serviteur c10 = new Serviteur("Gnôme lépreux", 1,1,1,new AttaqueMentale(2));
-        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomagé",1,2,1,0));
+        Serviteur c10 = new Serviteur("Gnôme lepreux", 1,1,1,new AttaqueMentale(2));
+        Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomage",1,2,1,0));
 
         // carte specifique a Jaina
         Sort c12 = new Sort("Choc de flamme",7,new CapaciteDegatMassive(4));
@@ -163,9 +161,14 @@ public class Program {
             plateau.pioche(plateau.joueurActuel());
             dessiner(plateau);
             plateau.joueurActuel().getMain().dessinerMain();
+            //On dit que chaque carte sur le terrain au tour precedent peut maintenant attaquer
+            for (Serviteur s: plateau.joueurActuel().getTerrain().getLstCarte()){
+                s.setAttente(0);
+            }
             int joueuractuel=plateau.getIdJoueurActuel();
             while(joueuractuel == plateau.getIdJoueurActuel()){
                 tour(plateau);
+                dessiner(plateau);
             }
         }
 
@@ -219,7 +222,12 @@ public class Program {
                 s.attaque(p,cible);
             }catch (noCarteException e){
                 System.out.println("Un des deux ou les deux serviteurs ne sont pas sur le terrain \n");
+            }catch (provocationException e1){
+                System.out.println("Impossible d'attaquer car une carte a provocation en face");
+            }catch (attenteException e2){
+                System.out.println("Impossible d'attaquer car cette carte doit attendre un tour pour etre prete");
             }
+
         }else if(choix==3){
             try{
                 p.joueurActuel().getHero().getPouvoir().lancer(p.joueurAAttaquer().getHero());
@@ -233,15 +241,17 @@ public class Program {
     }
 
     public static void dessiner(Plateau p){
+        //On dessine les pv
+        System.out.println("PV rexar : " + p.getJoueur1().getHero().getVies()+ "       "+"PV Jaine : " + p.getJoueur2().getHero().getVies()) ;
         //On dessine le terrain ennemi
         System.out.println("Terrain ennemie :\n");
-        p.joueurAAttaquer().getTerrain().dessinerTerrain();
+        System.out.println(p.joueurAAttaquer().getTerrain().dessinerTerrain());
         //On dessine le terrain du joueur
         System.out.println("Votre terrain :\n");
-        p.joueurActuel().getTerrain().dessinerTerrain();
+        System.out.println(p.joueurActuel().getTerrain().dessinerTerrain());
         //on dessine notre main
-        System.out.println("Votre Main :\n");
-        p.joueurActuel().getMain().dessinerMain();
+        System.out.println("Votre Main :"+ p.joueurActuel().getMain().getListecarte().size() +"\n");
+        System.out.println(p.joueurActuel().getMain().dessinerMain());
     }
 }
 
