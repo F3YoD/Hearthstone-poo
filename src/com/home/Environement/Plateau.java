@@ -68,11 +68,13 @@ public class Plateau {
      * @param p le joueur recevant la carte
      */
     public void pioche(Player p){
-        Random rnd = new Random();
-        int posCarte = rnd.nextInt(p.getDeck().getLstCarte().size() - 1);
+        if(!p.getDeck().getLstCarte().isEmpty()){
+            Random rnd = new Random();
+            int posCarte = rnd.nextInt(p.getDeck().getLstCarte().size() - 1);
 
-        p.getMain().getListecarte().add(p.getDeck().getLstCarte().get(posCarte));
-        p.getDeck().getLstCarte().remove(posCarte);
+            p.getMain().getListecarte().add(p.getDeck().getLstCarte().get(posCarte));
+            p.getDeck().getLstCarte().remove(posCarte);
+        }
     }
 
     @Override
