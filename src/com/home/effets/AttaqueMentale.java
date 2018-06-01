@@ -5,11 +5,11 @@ import com.home.carte.Carte;
 import com.home.exception.mauvaisIdException;
 
 public class AttaqueMentale extends Capacite{
-    int degats;
+    private int degats;
 
     public AttaqueMentale(int degats){
-        super("attaque mental : inflige 5 points de degat au hero");
-        this.setDegats(5);
+        super("attaque mentale");
+        this.setDegats(degats);
     }
 
     public int getDegats() {
