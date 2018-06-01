@@ -1,5 +1,6 @@
 package com.home.Environement;
 
+import com.home.exception.mauvaisIdException;
 import com.home.personnage.Player;
 
 public class Plateau {
@@ -25,6 +26,16 @@ public class Plateau {
 
     public void setJoueur2(Player joueur2) {
         this.joueur2 = joueur2;
+    }
+
+    public Player joueurAAttaquer(int pId) throws mauvaisIdException {
+        if(pId==1){
+            return this.joueur2;
+        }
+        else if(pId==2){
+            return this.joueur1;
+        }
+        throw new mauvaisIdException("L'id est différent de 1 et 2");
     }
 
     @Override

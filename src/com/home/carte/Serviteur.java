@@ -21,6 +21,7 @@ public class Serviteur extends Carte {
         this.setPriorite(0);
         this.setAttente(1);
     }
+    public Serviteur(){}
 
     // ================================================================== \\
     // =========================== GETS/SETS ============================ \\

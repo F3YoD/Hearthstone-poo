@@ -11,11 +11,12 @@ public class CapaciteDegatMassive extends Capacite {
 
 
     public CapaciteDegatMassive(int pDegat){
+        super("DegatMassive");
         this.degat = pDegat;
     }
 
     @Override
-    public void realiser(Plateau pPlateau,  int pIdLanceur) {
+    public void realiser(Carte lanceur,Plateau pPlateau,  int pIdLanceur) {
         if(pIdLanceur == 1){
             for(Serviteur s : pPlateau.getJoueur1().getTerrain().getLstCarte()){
                 s.setDegats(this.degat);
@@ -29,23 +30,9 @@ public class CapaciteDegatMassive extends Capacite {
         }
     }
 
-    @Override
-    public String getDescription() {
-        return null;
-    }
-
-    @Override
-    public void setDescription(String desc) {
-
-    }
 
     @Override
     public String toString() {
-        return null;
-    }
-
-    @Override
-    public boolean equals() {
-        return false;
+        return super.toString() + "degats :" + this.degat;
     }
 }

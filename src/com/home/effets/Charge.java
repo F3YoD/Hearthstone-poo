@@ -1,37 +1,30 @@
 package com.home.effets;
 
 import com.home.Environement.Plateau;
+import com.home.carte.Carte;
 import com.home.carte.Serviteur;
 
 import java.util.ArrayList;
 
 public class Charge extends Capacite {
 
-    public Charge(String description){
-        super();
-        this.type="Charge";
-        this.setDescription(description);
+    public Charge(){
+        super("Charge");
     }
     public void setDescription(String desc){
         this.description = desc;
     }
 
     @Override
-    public void realiser(Plateau pPlateau, int pIdLanceur) {
-
+    public void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur) {
+        Serviteur lanc =(Serviteur) lanceur;
+        lanc.setAttente(0);
     }
 
-    public String getDescription(){
-        return this.description;
-    }
     public boolean equals(){
         //a faire
         return false;
     }
-    public String toString(){
-        return "description : " + this.description;
-    }
-    public void realiser(Serviteur serv, ArrayList<Serviteur> lst){
-        serv.setAttente(serv.getAttente() -1);
-    }
+
+
 }

@@ -1,19 +1,31 @@
 package com.home.effets;
 
 import com.home.Environement.Plateau;
+import com.home.carte.Carte;
 import com.home.carte.Serviteur;
 import java.util.ArrayList;
 
 public abstract class Capacite {
-    public Capacite(){
-
+    public Capacite(String desc){
+        this.setDescription(desc);
     }
     protected String description;
-    protected String type;
-    // public abstract void realiser(Serviteur serviteur, ArrayList<Serviteur> lst); //Todo check les parametres
-    public abstract void realiser(Plateau pPlateau, int pIdLanceur); // 0 = aucun 1 = j1 2 = j2
-    public abstract String getDescription();
-    public abstract void setDescription(String desc);
-    public abstract String toString();
-    public abstract boolean equals();
+
+    public abstract void realiser(Carte lanceur, Plateau pPlateau, int pIdLanceur); // 0 = aucun 1 = j1 2 = j2
+    public String getDescription(){
+        return this.description;
+    }
+    public  void setDescription(String desc){
+        this.description=desc;
+    }
+
+    @Override
+    public String toString() {
+        return "description" + this.description;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

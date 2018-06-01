@@ -12,6 +12,8 @@ public abstract class Carte {
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
     // ================================================================== \\
+
+    public Carte(){}
     public Carte(String pNom, int pCout) {
             this.setNom(pNom);
             this.setCout(pCout);
@@ -36,6 +38,8 @@ public abstract class Carte {
 
         this.cout = pCout;
     }
+
+
 
     public abstract void lancer();
     //tostring
