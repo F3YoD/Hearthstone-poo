@@ -49,6 +49,16 @@ public class Plateau {
         throw new mauvaisIdException("L'id est différent de 1 et 2");
     }
 
+    public Player joueurActuel(int pId) throws mauvaisIdException {
+        if(pId==1){
+            return this.joueur1;
+        }
+        else if(pId==2){
+            return this.joueur2;
+        }
+        throw new mauvaisIdException("L'id est différent de 1 et 2");
+    }
+
     @Override
     public boolean equals(Object o) {
         return super.equals(o);

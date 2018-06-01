@@ -11,7 +11,7 @@ public class Attaqueciblée extends Capacite {
     private int degats;
     private String nom;
 
-    Attaqueciblée(String nom,int degats){
+    public Attaqueciblée(String nom,int degats){
         super("Attaque ciblée");
         this.setNom(nom);
         this.setDegats(degats);
