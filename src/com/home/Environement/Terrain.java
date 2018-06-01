@@ -67,6 +67,10 @@ public class Terrain {
         return fin;
     }
 
+    public void ajouterServiteur(Serviteur s){
+        this.lstCarte.add(s);
+    }
+
     @Override
     public boolean equals(Object o) {
         return super.equals(o);

@@ -52,4 +52,8 @@ public class Main {
         }
         return fin;
     }
+
+    public void supprimerCarte(Carte c){
+        this.liste_carte.remove(c);
+    }
 }

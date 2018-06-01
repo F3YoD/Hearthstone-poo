@@ -1,7 +1,10 @@
 package com.home.carte;
 
+import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.effets.Capacite;
+import com.home.exception.lowManaException;
+import com.home.exception.mauvaisIdException;
 
 public class Serviteur extends Carte {
     // ================================================================== \\
@@ -94,7 +97,18 @@ public class Serviteur extends Carte {
     public boolean equals(Object obj) {
         return super.equals(obj);
     }
-    public void lancer(){
-
+    public void lancer(Plateau plateau) throws lowManaException{
+        try {
+            if (this.getCout() > plateau.joueurActuel(plateau.getIdJoueurActuel()).getHero().getMana()){
+                throw new lowManaException("Pas assez de mana");
+            }
+            plateau.joueurActuel(plateau.getIdJoueurActuel()).getHero().supprMana(this.getCout());
+            //ajout de la carte au terrain
+            plateau.joueurActuel(plateau.getIdJoueurActuel()).getTerrain().ajouterCarte(this);
+            //on effectue la capacitée de la carte
+            this.getCap().realiser(this,plateau,plateau.getIdJoueurActuel());
+            //suppression de la carte de la main
+            plateau.joueurActuel(plateau.getIdJoueurActuel()).getMain().supprimerCarte(this);
+        }catch (mauvaisIdException e)  {} //TODO
     }
 }
