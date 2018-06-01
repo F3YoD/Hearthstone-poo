@@ -11,7 +11,7 @@ public abstract class Capacite {
     protected String description;
     protected String type;
     // public abstract void realiser(Serviteur serviteur, ArrayList<Serviteur> lst); //Todo check les parametres
-    public abstract void realiser(Plateau pPlateau);
+    public abstract void realiser(Plateau pPlateau, int pIdLanceur); // 0 = aucun 1 = j1 2 = j2
     public abstract String getDescription();
     public abstract void setDescription(String desc);
     public abstract String toString();
