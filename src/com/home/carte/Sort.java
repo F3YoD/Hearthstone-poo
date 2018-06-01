@@ -20,6 +20,8 @@ public class Sort extends Carte {
             if (this.getCout() > plateau.joueurActuel(plateau.getIdJoueurActuel()).getHero().getMana()){
                 throw new lowManaException("Pas assez de mana");
             }
+            //suppression du mana
+            plateau.joueurActuel(plateau.getIdJoueurActuel()).getHero().supprMana(this.getCout());
             //on effectue la capacitée
             capacite.realiser(this, plateau, plateau.getIdJoueurActuel());
             //suppression de la carte de la main

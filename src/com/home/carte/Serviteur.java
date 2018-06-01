@@ -102,6 +102,7 @@ public class Serviteur extends Carte {
             if (this.getCout() > plateau.joueurActuel(plateau.getIdJoueurActuel()).getHero().getMana()){
                 throw new lowManaException("Pas assez de mana");
             }
+            //suppression du mana
             plateau.joueurActuel(plateau.getIdJoueurActuel()).getHero().supprMana(this.getCout());
             //ajout de la carte au terrain
             plateau.joueurActuel(plateau.getIdJoueurActuel()).getTerrain().ajouterCarte(this);
