@@ -4,23 +4,21 @@ import com.home.effets.Pouvoir;
 
 public class Hero {
 
-    private String nom;// ================================================================== \\
+    // ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\
     // ================================================================== \\
     private int vies;
     private Pouvoir pouvoir;
-
+    private int mana;
+    private String nom;
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
     // ================================================================== \\
     public Hero(String pNom, int pVies, Pouvoir pPouvoir){
         this.setNom(pNom);
         this.setVies(pVies);
-        this.pouvoir = pPouvoir;
-    }
-    public Hero(String pNom, int pVies, String pNomPouvoir){
-        this.setNom(pNom);
-        this.setVies(pVies);
+        this.setPouvoir(pPouvoir);
+        this.mana=0;
     }
 
     // ================================================================== \\
@@ -30,14 +28,27 @@ public class Hero {
     public int getVies(){return this.vies;}
     public Pouvoir getPouvoir(){return this.pouvoir;}
 
-    private void setNom(String pNom){
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setPouvoir(Pouvoir pouvoir) {
+        this.pouvoir = pouvoir;
+    }
+
+    public void setNom(String pNom){
         if(pNom.trim().equals(""))
             throw new IllegalArgumentException();
 
         this.nom = pNom;
     }
 
-    private void setVies(int pVies){
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public void setVies(int pVies){
         if(pVies < 0)
             throw new IllegalArgumentException();
 
@@ -46,6 +57,14 @@ public class Hero {
 
     public void addVies(int pVies){
         this.vies += pVies;
+    }
+
+    public void addMana(int ajout){
+        this.setMana(this.mana+ajout);
+    }
+
+    public void supprMana(int malus){
+        this.setMana(this.mana-malus);
     }
 
     @Override
