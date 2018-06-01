@@ -102,7 +102,7 @@ public class Program {
         Sort c12 = new Sort("Choc de flamme",7,new CapaciteDegatMassive(4));
         Sort c13 = new Sort("Eclair de givre", 2, new Attaqueciblée("Attaque du givre",3));
         Sort c14 = new Sort("Intelligence des arcanes", 2,new Pioche(2));
-        Sort c15 = new Sort("Image mirroir", 1, new Invocation("Image Mirroir", 2,0,2,1)); // todo provocation + invoc
+        Sort c15 = new Sort("Image mirroir", 1, new Invocation("Image Mirroir", 2,0,2,1));
         Sort c16 = new Sort("Explosion pyrotechnique", 10,new Attaqueciblée("Explosion pyrotechnique",10));
 
         pDeck.add( c1);
