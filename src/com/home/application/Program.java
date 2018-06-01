@@ -27,17 +27,17 @@ public class Program {
                 new CapaciteBonus("Bonus de Hurlevent",1,1));
         Serviteur c5 = new Serviteur("Chef de raid",3,2,2, new CapaciteBonus("Bonus du chef de guerre",1,0));
         Serviteur c6 = new Serviteur("Garde de Baie-du-butin",5,4,5,new Provocation());
-        Serviteur c7 = new Serviteur("La missilière temeraire",6,2,5,new Charge());
+        Serviteur c7 = new Serviteur("La missiliere temeraire",6,2,5,new Charge());
         Serviteur c8 = new Serviteur("L'ogre-magi",4,4,4,new Provocation());
         Serviteur c9 = new Serviteur("Archimage",6,7,4,new Provocation());
-        Serviteur c10 = new Serviteur("Gnôme lepreux", 1,1,1,new AttaqueMentale(2));
+        Serviteur c10 = new Serviteur("Gnome lepreux", 1,1,1,new AttaqueMentale(2));
         Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomage",1,2,1,0));
 
         // carte specifique a Rexar
-        Serviteur c12 = new Serviteur("Busard affamé",5,2,3,new Pioche(1));
+        Serviteur c12 = new Serviteur("Busard affame",5,2,3,new Pioche(1));
         Sort c13 = new Sort("Marque du chasseur", 1,new MarqueDuChasseur());
         Sort c14 = new Sort("Tir des arcanes", 1,new AttaqueMentale(2));
-        Sort c15 = new Sort("Lâchez les chiens",3,new Invocation("Lâchez les chiens",1,1,3,0));
+        Sort c15 = new Sort("Lachez les chiens",3,new Invocation("Lâchez les chiens",1,1,3,0));
         Sort c16 = new Sort("Ordre de tuer",3,new Attaqueciblée("Ordre de tuer", 3));
 
         pDeck.add( c1);
@@ -67,10 +67,10 @@ public class Program {
                 new CapaciteBonus("Bonus de Hurlevent",1,1));
         Serviteur c5 = new Serviteur("Chef de raid",3,2,2, new CapaciteBonus("Bonus du chef de guerre",1,0));
         Serviteur c6 = new Serviteur("Garde de Baie-du-butin",5,4,5,new Provocation());
-        Serviteur c7 = new Serviteur("La missilière temeraire",6,2,5,new Charge());
+        Serviteur c7 = new Serviteur("La missiliere temeraire",6,2,5,new Charge());
         Serviteur c8 = new Serviteur("L'ogre-magi",4,4,4,new Provocation());
         Serviteur c9 = new Serviteur("Archimage",6,7,4,new Provocation());
-        Serviteur c10 = new Serviteur("Gnôme lepreux", 1,1,1,new AttaqueMentale(2));
+        Serviteur c10 = new Serviteur("Gnome lepreux", 1,1,1,new AttaqueMentale(2));
         Serviteur c11 = new Serviteur("Golem des moissons", 3,3,2,new Invocation("Golem endomage",1,2,1,0));
 
         // carte specifique a Jaina
