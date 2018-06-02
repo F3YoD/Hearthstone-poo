@@ -22,9 +22,13 @@ public class Pioche extends Capacite {
 
     @Override
     public void realiser(Carte lanceur, Plateau pPlateau) {
-        int i;
-        for(i=0;i<this.nbpioche;i++){
+        if(this.nbpioche > pPlateau.joueurActuel().getDeck().getLstCarte().size())
+            System.out.println("pas assez de carte dans le deck");
+        else{
+            int i;
+            for(i=0;i<this.nbpioche;i++){
                 pPlateau.pioche(pPlateau.joueurActuel());
             }
+        }
     }
 }
