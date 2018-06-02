@@ -218,7 +218,7 @@ public class Program {
             }catch (lowManaException e1){
                 System.out.println("Vous n'avez pas assez de mana \n");
             }catch (provocationException e2){
-                System.out.println("Impossible de lancer d'attaquer car une carte en face provoque");
+                System.out.println("Impossible de lancer d'attaquer car une carte en face provoque\n");
             }
         }else if(choix==2){
             System.out.println("Avec qui voulez vous attaquer ? (Tapez le nom de la carte en entier ou tapez hero pour attaquer le héro adverse) \n");
