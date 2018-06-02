@@ -9,6 +9,7 @@ import com.home.effets.*;
 import com.home.exception.*;
 import com.home.personnage.*;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Program {
@@ -189,8 +190,13 @@ public class Program {
             System.out.println("2) attaquez avec une carte (taper 2)");
             System.out.println("3) utiliser la capacitée du héro (taper 3)");
             System.out.println("4) passez le tour (taper 4)");
-
-            choix = sc2.nextInt();
+            try {
+                choix = sc2.nextInt();
+            }catch (InputMismatchException e){
+                choix =5;
+                sc2=new Scanner(System.in);
+                System.out.println("\n");
+            }
             if(choix < 1 || choix > 4)
                 System.out.println("erreure de saisie, recommancer");
 
