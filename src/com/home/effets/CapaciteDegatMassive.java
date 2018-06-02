@@ -6,6 +6,8 @@ import com.home.carte.Serviteur;
 import com.home.effets.Capacite;
 import com.home.exception.noLifeException;
 
+import java.util.ArrayList;
+
 public class CapaciteDegatMassive extends Capacite {
 
     private int degat;
@@ -18,12 +20,16 @@ public class CapaciteDegatMassive extends Capacite {
 
     @Override
     public void realiser(Carte lanceur,Plateau pPlateau) {
+        ArrayList<Serviteur> rm =new ArrayList<Serviteur>();
         for(Serviteur s: pPlateau.joueurAAttaquer().getTerrain().getLstCarte()){
             try {
                 s.prendDamage(this.degat);
             }catch (noLifeException e){
-                pPlateau.joueurAAttaquer().getTerrain().getLstCarte().remove(this);
+                rm.add(s);
             }
+        }
+        for (Serviteur s : rm){
+            pPlateau.joueurAAttaquer().getTerrain().getLstCarte().remove(s);
         }
     }
 

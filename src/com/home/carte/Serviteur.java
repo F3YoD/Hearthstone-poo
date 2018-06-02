@@ -89,6 +89,23 @@ public class Serviteur extends Carte {
         }
      }
 
+     public void attaquehero(Plateau p)throws provocationException, attenteException {
+         if(this.attente>0){
+             throw new attenteException("Ne peut pas attaquer ce tour ci");
+         }
+
+        if(p.joueurAAttaquer().getTerrain().provocation()){
+            throw new provocationException("Un serviteur provoque");
+        }
+        try{
+            p.joueurAAttaquer().getHero().prendDegats(this.nbDegats);
+            this.setAttente(1);
+        }catch (noLifeException e){
+            System.out.println(p.joueurActuel().getHero().getNom()+"gagne \n");
+            System.exit(0);
+        }
+     }
+
 
     public void attaque(Plateau p,Serviteur cible) throws attenteException, provocationException {
         if(this.attente>0){
@@ -100,8 +117,14 @@ public class Serviteur extends Carte {
 
         try {
             cible.prendDamage(this.nbDegats);
+            this.setAttente(1);
         }catch (noLifeException e){
-            p.joueurAAttaquer().getTerrain().getLstCarte().remove(this);
+            p.joueurAAttaquer().getTerrain().getLstCarte().remove(cible);
+        }
+        try {
+            this.prendDamage(cible.nbDegats);
+        }catch (noLifeException e1){
+            p.joueurActuel().getTerrain().getLstCarte().remove(this);
         }
     }
 

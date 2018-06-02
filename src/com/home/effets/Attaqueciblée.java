@@ -54,7 +54,9 @@ public class Attaqueciblée extends Capacite {
                 System.out.println("La carte n'est pas présente en face");
                 this.realiser(lanceur, plat);
             }catch (noLifeException e1){
-                plat.joueurAAttaquer().getTerrain().getLstCarte().remove(this);
+                try{
+                    plat.joueurAAttaquer().getTerrain().getLstCarte().remove(plat.joueurAAttaquer().getTerrain().Findwithname(cherche.trim()));
+                }catch (noCarteException e2){}
             }
         }
 

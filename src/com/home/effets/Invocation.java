@@ -16,6 +16,7 @@ public class Invocation extends Capacite {
         this.setVie(pv);
         this.setAttaque(degats);
         this.setNomcarte(nom);
+        this.setNbinvocation(nbinvo);
         this.setProvo(provo);
     }
 
@@ -47,6 +48,10 @@ public class Invocation extends Capacite {
         return vie;
     }
 
+    public void setNbinvocation(int nbinvocation) {
+        this.nbinvocation = nbinvocation;
+    }
+
     public String getNomcarte() {
         return nomcarte;
     }
@@ -54,11 +59,19 @@ public class Invocation extends Capacite {
     @Override
     public void realiser(Carte lanceur, Plateau pPlateau) {
         int i;
-        Serviteur invocation = new Serviteur(this.getNomcarte(),1,this.getVie(),this.getAttaque());
-        invocation.setPriorite(this.provo);
         for(i=0;i<this.nbinvocation;i++) {
-                pPlateau.joueurActuel().getTerrain().ajouterCarte(invocation);
+            Serviteur invocation = new Serviteur(this.getNomcarte(),1,this.getVie(),this.getAttaque());
+            invocation.setCapacite(new Aucunecap());
+            if (this.provo==1){
+                invocation.setPriorite(1);
+                invocation.getCapacite().setDescription("Provocation");
             }
+            if (nbinvocation >1){
+                    int j=i+1;
+                    invocation.setNom(invocation.getNom()+" " + j);
+            }
+            pPlateau.joueurActuel().getTerrain().ajouterCarte(invocation);
+        }
     }
 
 

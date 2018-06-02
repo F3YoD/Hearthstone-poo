@@ -14,6 +14,7 @@ public class Hero {
     private int mana;
     private int manamax;
     private String nom;
+    private boolean pouvoirdispo;
     // ================================================================== \\
     // =========================== CONSTRUCT ============================ \\
     // ================================================================== \\
@@ -23,6 +24,7 @@ public class Hero {
         this.setPouvoir(pPouvoir);
         this.mana=0;
         this.manamax=0;
+        pouvoirdispo=true;
     }
 
     // ================================================================== \\
@@ -50,6 +52,14 @@ public class Hero {
 
     public void setMana(int mana) {
         this.mana = mana;
+    }
+
+    public boolean isPouvoirdispo() {
+        return pouvoirdispo;
+    }
+
+    public void setPouvoirdispo(boolean pouvoirdispo) {
+        this.pouvoirdispo = pouvoirdispo;
     }
 
     public void setVies(int pVies){

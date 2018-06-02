@@ -20,7 +20,7 @@ public class Program {
     }
 
     public static void InitDeckRexar(Deck pDeck){
-        Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("cri de guerre", 1, 1, 1,0));
+        Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("murloc", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
         Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
         Serviteur c4 = new Serviteur("Champion de hurlevent",7,6,6,
@@ -37,7 +37,7 @@ public class Program {
         Serviteur c12 = new Serviteur("Busard affame",5,2,3,new Pioche(1));
         Sort c13 = new Sort("Marque du chasseur", 1,new MarqueDuChasseur());
         Sort c14 = new Sort("Tir des arcanes", 1,new AttaqueMentale(2));
-        Sort c15 = new Sort("Lachez les chiens",3,new Invocation("Lachez les chiens",1,1,3,0));
+        Sort c15 = new Sort("Lachez les chiens",3,new Invocation("chien",1,1,3,0));
         Sort c16 = new Sort("Ordre de tuer",3,new Attaqueciblée("Ordre de tuer", 3));
 
         pDeck.add( c1);
@@ -149,7 +149,6 @@ public class Program {
         Plateau plateau= new Plateau(joueur1,joueur2);
 
 
-
         while(jeu){
             System.out.println("Tour :" + plateau.joueurActuel().getHero().getNom() + "\n");
             try {
@@ -159,6 +158,8 @@ public class Program {
             //on mets les memes valeurs au mana max et au mana du joueur qui joue
             plateau.joueurActuel().getHero().setMana(plateau.joueurActuel().getHero().getManamax());
             plateau.pioche(plateau.joueurActuel());
+            //On rends de nouveau dispo la capacité du héros
+            plateau.joueurActuel().getHero().setPouvoirdispo(true);
             dessiner(plateau);
             plateau.joueurActuel().getMain().dessinerMain();
             //On dit que chaque carte sur le terrain au tour precedent peut maintenant attaquer
@@ -167,7 +168,8 @@ public class Program {
             }
             int joueuractuel=plateau.getIdJoueurActuel();
             while(joueuractuel == plateau.getIdJoueurActuel()){
-                tour(plateau);
+                Scanner sc=new Scanner(System.in);
+                tour(plateau,sc);
                 dessiner(plateau);
             }
         }
@@ -179,7 +181,7 @@ public class Program {
      * @return
      */
     public static int getChoix(){
-        Scanner sc = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
         int choix;
         do{
             System.out.println("************************************faite un choix :");
@@ -188,7 +190,7 @@ public class Program {
             System.out.println("3) utiliser la capacitée du héro (taper 3)");
             System.out.println("4) passez le tour (taper 4)");
 
-            choix = sc.nextInt();
+            choix = sc2.nextInt();
             if(choix < 1 || choix > 4)
                 System.out.println("erreure de saisie, recommancer");
 
@@ -197,8 +199,7 @@ public class Program {
         return choix;
     }
 
-    public static void tour(Plateau p){
-        Scanner sc = new Scanner(System.in);
+    public static void tour(Plateau p,Scanner sc){
         int choix =getChoix();
         if (choix == 1){
             System.out.println("Qui voulez vous jouer ? (tapez le nom de la carte en entier)\n");
@@ -212,28 +213,43 @@ public class Program {
                 System.out.println("Vous n'avez pas assez de mana \n");
             }
         }else if(choix==2){
-            System.out.println("Avec qui voulez vous attaquer ? (Tapez le nom de la carte en entier) \n");
+            System.out.println("Avec qui voulez vous attaquer ? (Tapez le nom de la carte en entier ou tapez hero pour attaquer le héro adverse) \n");
             String cherche =sc.nextLine();
-            System.out.println("Qui voulez vous attaquer ? ");
+            System.out.println("Qui voulez vous attaquer ? \n");
             String cherche2=sc.nextLine();
-            try {
-                Serviteur s = p.joueurActuel().getTerrain().Findwithname(cherche.trim());
-                Serviteur cible = p.joueurAAttaquer().getTerrain().Findwithname(cherche2.trim());
-                s.attaque(p,cible);
-            }catch (noCarteException e){
-                System.out.println("Un des deux ou les deux serviteurs ne sont pas sur le terrain \n");
-            }catch (provocationException e1){
-                System.out.println("Impossible d'attaquer car une carte a provocation en face");
-            }catch (attenteException e2){
-                System.out.println("Impossible d'attaquer car cette carte doit attendre un tour pour etre prete");
+            if (cherche2.trim().equals("hero")){
+               try {
+                   Serviteur s = p.joueurActuel().getTerrain().Findwithname(cherche.trim());
+                   s.attaquehero(p);
+               }catch (noCarteException e) {
+                   System.out.println("Ce serviteur n'est pas sur le terrain \n");
+               }catch (provocationException e1){
+                   System.out.println("Un serviteur provoque en face , impossible d'attaquer\n");
+               }catch (attenteException e2){
+                   System.out.println("Ce serviteur doit arrente un tour avant de pourvoir attaquer \n");
+               }
             }
-
+            else{
+                try {
+                    Serviteur s = p.joueurActuel().getTerrain().Findwithname(cherche.trim());
+                    Serviteur cible = p.joueurAAttaquer().getTerrain().Findwithname(cherche2.trim());
+                    s.attaque(p, cible);
+                } catch (noCarteException e) {
+                    System.out.println("Un des deux ou les deux serviteurs ne sont pas sur le terrain \n");
+                } catch (provocationException e1) {
+                    System.out.println("Impossible d'attaquer car une carte a provocation en face");
+                } catch (attenteException e2) {
+                    System.out.println("Impossible d'attaquer car cette carte doit attendre un tour pour etre prete");
+                }
+            }
         }else if(choix==3){
             try{
-                p.joueurActuel().getHero().getPouvoir().lancer(p.joueurAAttaquer().getHero());
+                p.joueurActuel().getHero().getPouvoir().lancer(p);
             }catch (noLifeException e){
                 System.out.println(p.joueurActuel().getHero().getNom() +"a gagné");
                 System.exit(0);
+            }catch (pouvoirUtiliseException e1){
+                System.out.println("Pouvoir deja utilisé \n");
             }
         }else if(choix==4){
             p.changementJoueur();
