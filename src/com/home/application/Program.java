@@ -174,9 +174,7 @@ public class Program {
             }
             clearTerminal();
         }
-
-
-        }
+    }
     /**
      * le sous programme demande au joueur ce qu'il veut faire que le joueur veut faire
      * @return
@@ -285,7 +283,7 @@ public class Program {
         System.out.println(p.joueurActuel().getMain().dessinerMain());
     }
 
-    public static void clearTerminal(){
+    private static void clearTerminal(){
         for(int clear = 0; clear < 500; ++clear)
             System.out.println("");
     }
