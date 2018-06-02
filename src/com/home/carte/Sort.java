@@ -20,7 +20,12 @@ public class Sort extends Carte {
             //suppression du mana
             plateau.joueurActuel().getHero().supprMana(this.getCout());
             //on effectue la capacitée
+        try {
             getCapacite().realiser(this, plateau);
+        }catch (provocationException e){
+            plateau.joueurActuel().getHero().addMana(this.getCout());
+            throw new provocationException("Une carte provoque");
+        }
             //suppression de la carte de la main
             plateau.joueurActuel().getMain().supprimerCarte(this);
 
