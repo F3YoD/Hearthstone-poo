@@ -69,10 +69,12 @@ public class Plateau {
     public void pioche(Player p){
         if(!p.getDeck().getLstCarte().isEmpty()){
             Random rnd = new Random();
-            int posCarte = rnd.nextInt(p.getDeck().getLstCarte().size() - 1);
-
+            int posCarte = rnd.nextInt(p.getDeck().getLstCarte().size());
             p.getMain().getListecarte().add(p.getDeck().getLstCarte().get(posCarte));
             p.getDeck().getLstCarte().remove(posCarte);
+        }
+        else{
+            System.out.println("\033[31mLe deck est vide\033[0m");
         }
     }
 
