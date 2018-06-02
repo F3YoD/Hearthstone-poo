@@ -149,7 +149,6 @@ public class Program {
 
 
         while(jeu){
-            System.out.println("Tour :" + plateau.joueurActuel().getHero().getNom() + "\n");
             try {
                 plateau.joueurActuel().getHero().addManaMax(1);
             }catch (maxManaException e){
@@ -198,7 +197,7 @@ public class Program {
                 System.out.println("\n");
             }
             if(choix < 1 || choix > 4)
-                System.out.println("erreure de saisie, recommancer");
+                System.out.println("\033[31merreure de saisie, recommencez\033[0m");
 
         }while(choix < 1 || choix > 4);
 
@@ -214,11 +213,16 @@ public class Program {
                 Carte c = p.joueurActuel().getMain().Findwithname(cherche.trim());
                 c.lancer(p);
             }catch (noCarteException e){
-                System.out.println("Cette carte n'est pas présente \n");
+                System.out.println("\033[31mCette carte n'est pas présente\033[0m \n");
+                try {
+                    p.joueurActuel().getHero().addMana(p.joueurActuel().getMain().Findwithname(cherche.trim()).getCout());
+                }catch (noCarteException e3){
+
+                }
             }catch (lowManaException e1){
-                System.out.println("Vous n'avez pas assez de mana \n");
+                System.out.println("\033[31mVous n'avez pas assez de mana\033[0m \n");
             }catch (provocationException e2){
-                System.out.println("Impossible de lancer d'attaquer car une carte en face provoque\n");
+                System.out.println("\033[31mImpossible de lancer d'attaquer car une carte en face provoque\033[0m \n");
             }
         }else if(choix==2){
             System.out.println("Avec qui voulez vous attaquer ? (Tapez le nom de la carte en entier ou tapez hero pour attaquer le héro adverse) \n");
@@ -230,11 +234,11 @@ public class Program {
                    Serviteur s = p.joueurActuel().getTerrain().Findwithname(cherche.trim());
                    s.attaquehero(p);
                }catch (noCarteException e) {
-                   System.out.println("Ce serviteur n'est pas sur le terrain \n");
+                   System.out.println("\033[31mCe serviteur n'est pas sur le terrain\033[0m \n");
                }catch (provocationException e1){
-                   System.out.println("Un serviteur provoque en face , impossible d'attaquer\n");
+                   System.out.println("\033[31mUn serviteur provoque en face , impossible d'attaquer\033[0m \n");
                }catch (attenteException e2){
-                   System.out.println("Ce serviteur doit arrente un tour avant de pourvoir attaquer \n");
+                   System.out.println("\033[31mCe serviteur doit arrente un tour avant de pourvoir attaquer\033[0m \n");
                }
             }
             else{
@@ -243,11 +247,11 @@ public class Program {
                     Serviteur cible = p.joueurAAttaquer().getTerrain().Findwithname(cherche2.trim());
                     s.attaque(p, cible);
                 } catch (noCarteException e) {
-                    System.out.println("Un des deux ou les deux serviteurs ne sont pas sur le terrain \n");
+                    System.out.println("\033[31mUn des deux ou les deux serviteurs ne sont pas sur le terrain\033[0m \n");
                 } catch (provocationException e1) {
-                    System.out.println("Impossible d'attaquer car une carte a provocation en face");
+                    System.out.println("\033[31mImpossible d'attaquer car une carte a provocation en face\033[0m \n");
                 } catch (attenteException e2) {
-                    System.out.println("Impossible d'attaquer car cette carte doit attendre un tour pour etre prete");
+                    System.out.println("\033[31mImpossible d'attaquer car cette carte doit attendre un tour pour etre prete\033[0m \n");
                 }
             }
         }else if(choix==3){
@@ -257,7 +261,7 @@ public class Program {
                 System.out.println(p.joueurActuel().getHero().getNom() +"a gagné");
                 System.exit(0);
             }catch (pouvoirUtiliseException e1){
-                System.out.println("Pouvoir deja utilisé \n");
+                System.out.println("\033[31mPouvoir deja utilisé\033[0m \n");
             }
         }else if(choix==4){
             p.changementJoueur();
@@ -266,8 +270,9 @@ public class Program {
 
     private static void dessiner(Plateau p){
         //On dessine les pv
-        System.out.println("PV rexar : " + p.getJoueur1().getHero().getVies()+ "       "+"PV Jaine : " + p.getJoueur2().getHero().getVies()+"\n") ;
-        System.out.println("Votre mana :" + p.joueurActuel().getHero().getMana() +"/" + p.joueurActuel().getHero().getManamax());
+        System.out.println("PV rexar : " + p.getJoueur1().getHero().getVies()+ "       "+"PV Jaina : " + p.getJoueur2().getHero().getVies()+"\n") ;
+        System.out.println("\033[33mTour :" + p.joueurActuel().getHero().getNom() + "\033[0m");
+        System.out.println("\033[34mVotre mana :" + p.joueurActuel().getHero().getMana() +"/" + p.joueurActuel().getHero().getManamax()+"\033[0m"+"\n");
         //On dessine le terrain ennemi
         System.out.println("Terrain ennemie :\n");
         System.out.println(p.joueurAAttaquer().getTerrain().dessinerTerrain());
