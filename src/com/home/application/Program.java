@@ -172,6 +172,7 @@ public class Program {
                 tour(plateau,sc);
                 dessiner(plateau);
             }
+            clearTerminal();
         }
 
 
@@ -282,6 +283,11 @@ public class Program {
         //on dessine notre main
         System.out.println("Votre Main :"+"\n");
         System.out.println(p.joueurActuel().getMain().dessinerMain());
+    }
+
+    public static void clearTerminal(){
+        for(int clear = 0; clear < 500; ++clear)
+            System.out.println("");
     }
 }
 
