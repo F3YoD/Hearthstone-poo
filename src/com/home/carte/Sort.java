@@ -3,6 +3,7 @@ package com.home.carte;
 import com.home.Environement.Plateau;
 import com.home.effets.*;
 import com.home.exception.lowManaException;
+import com.home.exception.provocationException;
 
 public class Sort extends Carte {
 
@@ -10,7 +11,7 @@ public class Sort extends Carte {
         super(pNom, pCout,pCapacite);
     }
 
-    public void lancer(Plateau plateau) throws lowManaException{
+    public void lancer(Plateau plateau) throws lowManaException, provocationException {
 
             if (this.getCout() > plateau.joueurActuel().getHero().getMana()){
                 throw new lowManaException("Pas assez de mana");

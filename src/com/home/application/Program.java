@@ -102,7 +102,7 @@ public class Program {
         System.out.println("******************************************* DEBUT PARTIE");
         System.out.println(p.getJoueur1().getHero().toString());
         Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new AttaqueMentale(5));
-        c3.getCapacite().realiser(c3,p);
+        //c3.getCapacite().realiser(c3,p);
         System.out.println(p.getJoueur1().getHero().toString());
         System.out.println("\033[32m******************************************* FIN PARTIE\033[0m");
 
@@ -211,6 +211,8 @@ public class Program {
                 System.out.println("Cette carte n'est pas présente \n");
             }catch (lowManaException e1){
                 System.out.println("Vous n'avez pas assez de mana \n");
+            }catch (provocationException e2){
+                System.out.println("Impossible de lancer d'attaquer car une carte en face provoque");
             }
         }else if(choix==2){
             System.out.println("Avec qui voulez vous attaquer ? (Tapez le nom de la carte en entier ou tapez hero pour attaquer le héro adverse) \n");
@@ -258,7 +260,8 @@ public class Program {
 
     public static void dessiner(Plateau p){
         //On dessine les pv
-        System.out.println("PV rexar : " + p.getJoueur1().getHero().getVies()+ "       "+"PV Jaine : " + p.getJoueur2().getHero().getVies()) ;
+        System.out.println("PV rexar : " + p.getJoueur1().getHero().getVies()+ "       "+"PV Jaine : " + p.getJoueur2().getHero().getVies()+"\n") ;
+        System.out.println("Votre mana :" + p.joueurActuel().getHero().getMana() +"/" + p.joueurActuel().getHero().getManamax());
         //On dessine le terrain ennemi
         System.out.println("Terrain ennemie :\n");
         System.out.println(p.joueurAAttaquer().getTerrain().dessinerTerrain());
@@ -266,7 +269,7 @@ public class Program {
         System.out.println("Votre terrain :\n");
         System.out.println(p.joueurActuel().getTerrain().dessinerTerrain());
         //on dessine notre main
-        System.out.println("Votre Main :"+ p.joueurActuel().getMain().getListecarte().size() +"\n");
+        System.out.println("Votre Main :"+"\n");
         System.out.println(p.joueurActuel().getMain().dessinerMain());
     }
 }

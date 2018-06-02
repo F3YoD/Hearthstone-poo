@@ -154,22 +154,23 @@ public class Serviteur extends Carte {
     }
 
     @Override
-    public boolean equals(Object obj) {
+    public boolean equals(Object obj){
         return super.equals(obj);
     }
-    public void lancer(Plateau plateau) throws lowManaException{
+    public void lancer(Plateau plateau) throws lowManaException, provocationException{
 
-            if (this.getCout() > plateau.joueurActuel().getHero().getMana()){
-                throw new lowManaException("Pas assez de mana");
-            }
-            //suppression du mana
-            plateau.joueurActuel().getHero().supprMana(this.getCout());
-            //ajout de la carte au terrain
-            plateau.joueurActuel().getTerrain().ajouterCarte(this);
-            //on effectue la capacitée de la carte
-            this.getCapacite().realiser(this,plateau);
-            //suppression de la carte de la main
-            plateau.joueurActuel().getMain().supprimerCarte(this);
+        if (this.getCout() > plateau.joueurActuel().getHero().getMana()) {
+            throw new lowManaException("Pas assez de mana");
+        }
+        //suppression du mana
+        plateau.joueurActuel().getHero().supprMana(this.getCout());
+        //ajout de la carte au terrain
+        plateau.joueurActuel().getTerrain().ajouterCarte(this);
+        //on effectue la capacitée de la carte
+        this.getCapacite().realiser(this, plateau);
+        //suppression de la carte de la main
+        plateau.joueurActuel().getMain().supprimerCarte(this);
+
 
     }
 }

@@ -21,7 +21,6 @@ public class MarqueDuChasseur extends Capacite {
             pPlateau.joueurAAttaquer().getTerrain().Findwithname(cherche).setVies(1);
         }catch (noCarteException e){
             System.out.println("La carte n'est pas présente en face");
-            this.realiser(lanceur,pPlateau);
         }
     }
 
