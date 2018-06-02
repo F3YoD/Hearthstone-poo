@@ -18,17 +18,12 @@ public class Charge extends Capacite {
     }
 
     @Override
-    public void realiser(Carte lanceur, Plateau pPlateau) {
+    public void realiser(Carte lanceur, Plateau pPlateau) throws noCarteException {
         Scanner sc = new Scanner(System.in);
         System.out.println("A qui voulez vous appliquer charge ? \n");
         String cherche = sc.nextLine();
-        try {
-            Serviteur cible = pPlateau.joueurActuel().getTerrain().Findwithname(cherche.trim());
-            cible.setAttente(0);
-        } catch (noCarteException e) {
-            System.out.println("La carte n'est pas présente sur votre terrain");
-
-        }
+        Serviteur cible = pPlateau.joueurActuel().getTerrain().Findwithname(cherche.trim());
+        cible.setAttente(0);
     }
 
     public boolean equals(){

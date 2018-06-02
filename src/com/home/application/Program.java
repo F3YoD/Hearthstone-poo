@@ -15,12 +15,10 @@ import java.util.Scanner;
 public class Program {
 
     public static void main(String argv[]) {
-
         game();
-
     }
 
-    public static void InitDeckRexar(Deck pDeck){
+    private static void InitDeckRexar(Deck pDeck){
         Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("murloc", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
         Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
@@ -60,7 +58,7 @@ public class Program {
 
     }
 
-    public static void InitDeckJaina(Deck pDeck){
+    private static void InitDeckJaina(Deck pDeck){
         Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("Murloc", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
         Sort c3 = new Sort("Attaque Mentale",2,new AttaqueMentale(5));
@@ -102,7 +100,7 @@ public class Program {
     public static void startPartie(Plateau p)  {
         System.out.println("******************************************* DEBUT PARTIE");
         System.out.println(p.getJoueur1().getHero().toString());
-        Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new AttaqueMentale(5));
+        //Serviteur c3= new Serviteur("Gnome lepreux",1,1,1,new AttaqueMentale(5));
         //c3.getCapacite().realiser(c3,p);
         System.out.println(p.getJoueur1().getHero().toString());
         System.out.println("\033[32m******************************************* FIN PARTIE\033[0m");
@@ -124,7 +122,7 @@ public class Program {
 
     }
 
-    public static void game (){
+    private static void game (){
         Pouvoir feu = new Feu();
         Pouvoir force = new Force();
         boolean jeu=true;
@@ -155,6 +153,8 @@ public class Program {
             try {
                 plateau.joueurActuel().getHero().addManaMax(1);
             }catch (maxManaException e){
+                //on ajoute pas de mana
+                System.out.println("Mana max \n");
             }
             //on mets les memes valeurs au mana max et au mana du joueur qui joue
             plateau.joueurActuel().getHero().setMana(plateau.joueurActuel().getHero().getManamax());
@@ -181,7 +181,7 @@ public class Program {
      * le sous programme demande au joueur ce qu'il veut faire que le joueur veut faire
      * @return
      */
-    public static int getChoix(){
+    private static int getChoix(){
         Scanner sc2 = new Scanner(System.in);
         int choix;
         do{
@@ -205,7 +205,7 @@ public class Program {
         return choix;
     }
 
-    public static void tour(Plateau p,Scanner sc){
+    private static void tour(Plateau p,Scanner sc){
         int choix =getChoix();
         if (choix == 1){
             System.out.println("Qui voulez vous jouer ? (tapez le nom de la carte en entier)\n");
@@ -264,7 +264,7 @@ public class Program {
         }
     }
 
-    public static void dessiner(Plateau p){
+    private static void dessiner(Plateau p){
         //On dessine les pv
         System.out.println("PV rexar : " + p.getJoueur1().getHero().getVies()+ "       "+"PV Jaine : " + p.getJoueur2().getHero().getVies()+"\n") ;
         System.out.println("Votre mana :" + p.joueurActuel().getHero().getMana() +"/" + p.joueurActuel().getHero().getManamax());

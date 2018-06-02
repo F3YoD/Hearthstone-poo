@@ -35,7 +35,7 @@ public class Attaqueciblée extends Capacite {
         return nom;
     }
 
-    public void realiser(Carte lanceur, Plateau plat) throws provocationException {
+    public void realiser(Carte lanceur, Plateau plat) throws provocationException,noCarteException {
         Scanner sc = new Scanner(System.in);
         System.out.println("Qui voulez vous attaquer ? (Si vous voulez attaquer le Héro adverse marquez hero sinon le nom de la carte) \n ");
         String cherche =sc.nextLine();
@@ -57,8 +57,6 @@ public class Attaqueciblée extends Capacite {
                     throw new provocationException("Un personnage provoque en face");
                 }
                 cible.prendDamage(this.degats);
-            }catch (noCarteException e) {
-                System.out.println("La carte n'est pas présente en face");
             }catch (noLifeException e1){
                 try{
                     plat.joueurAAttaquer().getTerrain().getLstCarte().remove(plat.joueurAAttaquer().getTerrain().Findwithname(cherche.trim()));

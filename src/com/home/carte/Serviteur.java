@@ -2,10 +2,7 @@ package com.home.carte;
 
 import com.home.Environement.Plateau;
 import com.home.effets.Capacite;
-import com.home.exception.attenteException;
-import com.home.exception.lowManaException;
-import com.home.exception.noLifeException;
-import com.home.exception.provocationException;
+import com.home.exception.*;
 
 public class Serviteur extends Carte {
     // ================================================================== \\
@@ -157,7 +154,7 @@ public class Serviteur extends Carte {
     public boolean equals(Object obj){
         return super.equals(obj);
     }
-    public void lancer(Plateau plateau) throws lowManaException, provocationException{
+    public void lancer(Plateau plateau) throws lowManaException, provocationException, noCarteException {
 
         if (this.getCout() > plateau.joueurActuel().getHero().getMana()) {
             throw new lowManaException("Pas assez de mana");
