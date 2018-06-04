@@ -6,6 +6,14 @@ import com.home.carte.Serviteur;
 
 import java.util.Scanner;
 
+
+/**
+ * <b>Provocation hérite de Capacite et est une Capacite Particulière</b>
+ * <p>
+ * elle met a 1 la priorité de la carte possèdant cette capacite
+ * </p>
+ * @author yoann/pierre
+ */
 public class Provocation extends Capacite {
 
     public Provocation(){

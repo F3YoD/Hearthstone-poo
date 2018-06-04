@@ -6,6 +6,10 @@ import com.home.exception.noCarteException;
 
 import java.util.ArrayList;
 
+/**
+ * <b>la class Capacite est la liste de carte que possede le joueur</b>
+ * @author yoann/pierre
+ */
 public class Deck {
     // ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\

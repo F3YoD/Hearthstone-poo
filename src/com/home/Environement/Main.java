@@ -6,6 +6,13 @@ import com.home.exception.noCarteException;
 
 import java.util.ArrayList;
 
+/**
+ * <b>la class Main est la liste des carte dans la main du joueur</b>
+ * <p>
+ *
+ * </p>
+ * @author yoann/pierre
+ */
 public class Main {
     private int nb_carte; //nombre de carte actuellement dans la main;
     private ArrayList<Carte> liste_carte;

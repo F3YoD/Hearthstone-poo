@@ -8,6 +8,13 @@ import com.home.exception.noCarteException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * <b>Charge hérite de Capacite et est une Capacite Particulière</b>
+ * <p>
+ * la carte possèdant cette capacité peut attaqué immédiatement
+ * </p>
+ * @author yoann/pierre
+ */
 public class Charge extends Capacite {
 
     public Charge(){

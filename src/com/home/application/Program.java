@@ -12,6 +12,17 @@ import com.home.personnage.*;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * <b>la class Program fait tourner le programme</b>
+ * <p>
+ *     role :
+ * </p>
+ * <ul>
+ *     <li>initialise les carte</li>
+ *     <li>contient la boucle du jeu</li>
+ * </ul>
+ * @author yoann/pierre
+ */
 public class Program {
 
     public static void main(String argv[]) {

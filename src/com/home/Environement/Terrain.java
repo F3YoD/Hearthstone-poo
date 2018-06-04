@@ -6,6 +6,13 @@ import com.home.exception.noCarteException;
 
 import java.util.ArrayList;
 
+/**
+ * <b>la class Terrain est le terrain d'un certain joueur</b>
+ * <p>
+ * chaque joueur possède un terrain
+ * </p>
+ * @author yoann/pierre
+ */
 public class Terrain {
     private ArrayList<Serviteur> lstCarte;
 

@@ -4,6 +4,13 @@ import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.carte.Serviteur;
 
+/**
+ * <b>CapaciteBonus hérite de Capacite et est une Capacite Particulière</b>
+ * <p>
+ * elle ajoute de l'attaque et de la vie au cartes présentes sur le terrain allié
+ * </p>
+ * @author yoann/pierre
+ */
 public class CapaciteBonus extends Capacite {
     private int paBonus;
     private int pvBonus;

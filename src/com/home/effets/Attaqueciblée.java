@@ -9,6 +9,13 @@ import com.home.exception.provocationException;
 
 import java.util.Scanner;
 
+/**
+ * <b>Attaqueciblée hérite de Capacite et est une Capacite Particulière</b>
+ * <p>
+ * elle attaque une carte ou un hero ciblé
+ * </p>
+ * @author yoann/pierre
+ */
 public class Attaqueciblée extends Capacite {
     private int degats;
     private String nom;

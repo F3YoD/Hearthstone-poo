@@ -6,6 +6,13 @@ import com.home.exception.noCarteException;
 
 import java.util.Scanner;
 
+/**
+ * <b>MarqueDuChasseur hérite de Capacite et est une Capacite Particulière</b>
+ * <p>
+ * elle retire 1 point de vie a une carte ciblé
+ * </p>
+ * @author yoann/pierre
+ */
 public class MarqueDuChasseur extends Capacite {
 
     public MarqueDuChasseur(){

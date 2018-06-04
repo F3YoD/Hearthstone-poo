@@ -5,6 +5,13 @@ import com.home.personnage.Player;
 
 import java.util.Random;
 
+/**
+ * <b>la class Plateau contient tout les éléments de la partie</b>
+ * <p>
+ * elle contient les deux joueurs et l'identifiant du joueur actuel
+ * </p>
+ * @author yoann/pierre
+ */
 public class Plateau {
     private Player joueur1;
     private Player joueur2;

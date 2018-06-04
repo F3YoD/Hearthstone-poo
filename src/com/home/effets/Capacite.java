@@ -5,6 +5,10 @@ import com.home.carte.Carte;
 import com.home.exception.noCarteException;
 import com.home.exception.provocationException;
 
+/**
+ * <b>une Capacite est un atout que possède une carte</b>
+ * @author yoann/pierre
+ */
 public abstract class Capacite {
     public Capacite(String desc){
         this.setDescription(desc);

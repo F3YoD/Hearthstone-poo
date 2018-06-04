@@ -4,6 +4,13 @@ import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.carte.Serviteur;
 
+/**
+ * <b>Invocation hérite de Capacite et est une Capacite Particulière</b>
+ * <p>
+ * elle permet d'invoquer plusieurs cartes sur le terrain
+ * </p>
+ * @author yoann/pierre
+ */
 public class Invocation extends Capacite {
     private int nbinvocation;
     private String nomcarte;

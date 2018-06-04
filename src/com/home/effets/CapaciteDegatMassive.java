@@ -8,6 +8,13 @@ import com.home.exception.noLifeException;
 
 import java.util.ArrayList;
 
+/**
+ * <b>CapaciteDegatMassive hérite de Capacite et est une Capacite Particulière</b>
+ * <p>
+ * elle provoque des degats a toutes les cartes adverse présente sur le terrain
+ * </p>
+ * @author yoann/pierre
+ */
 public class CapaciteDegatMassive extends Capacite {
 
     private int degat;

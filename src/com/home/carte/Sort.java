@@ -6,6 +6,10 @@ import com.home.exception.lowManaException;
 import com.home.exception.noCarteException;
 import com.home.exception.provocationException;
 
+/**
+ * <b>Sort hérite de Carte et est une Carte Particulière</b>
+ * @author yoann/pierre
+ */
 public class Sort extends Carte {
 
     public Sort(String pNom, int pCout, Capacite pCapacite){

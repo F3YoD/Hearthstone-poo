@@ -4,6 +4,10 @@ import com.home.Environement.Plateau;
 import com.home.effets.Capacite;
 import com.home.exception.*;
 
+/**
+ * <b>Serviteur hérite de Carte et est une Carte Particulière</b>
+ * @author yoann/pierre
+ */
 public class Serviteur extends Carte {
     // ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\

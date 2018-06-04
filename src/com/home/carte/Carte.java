@@ -6,6 +6,10 @@ import com.home.exception.lowManaException;
 import com.home.exception.noCarteException;
 import com.home.exception.provocationException;
 
+/**
+ * <b>Carte est la classe abstraite qui represente un carte du jeu HearthStone</b>
+ * @author yoann/pierre
+ */
 public abstract class Carte {
     // ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\

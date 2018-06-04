@@ -4,6 +4,13 @@ import com.home.effets.Pouvoir;
 import com.home.exception.maxManaException;
 import com.home.exception.noLifeException;
 
+/**
+ * <b>la class Hero représente le joueur dans la partie</b>
+ * <p>
+ *     si le hero n'a plu de vie le joueur perd
+ * </p>
+ * @author yoann/pierre
+ */
 public class Hero {
 
     // ================================================================== \\

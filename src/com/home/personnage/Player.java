@@ -4,6 +4,19 @@ import com.home.Environement.Deck;
 import com.home.Environement.Main;
 import com.home.Environement.Terrain;
 
+/**
+ * <b>la class Player est tout ce que le joueur possède</b>
+ * <p>
+ * il possède
+ * </p>
+ * <ul>
+ *     <li>sa deck (ses cartes)</li>
+ *     <li>son hero</li>
+ *     <li>sa main (ses cartes dans sa main)</li>
+ *     <li>son terrain (ses cartes sur le plateau)</li>
+ * </ul>
+ * @author yoann/pierre
+ */
 public class Player {
     // ================================================================== \\
     // =========================== ATTRIBUTS ============================ \\
