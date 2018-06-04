@@ -38,7 +38,7 @@ public class Terrain {
     public void supprimerCarte(Serviteur carte){ //todo a tester
         this.lstCarte.remove(carte);
     }
-    public boolean estPrésente(Serviteur carte){
+    public boolean estPresente(Serviteur carte){
         return this.lstCarte.contains(carte);
     }
 

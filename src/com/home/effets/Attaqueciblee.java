@@ -16,11 +16,11 @@ import java.util.Scanner;
  * </p>
  * @author yoann/pierre
  */
-public class Attaqueciblée extends Capacite {
+public class Attaqueciblee extends Capacite {
     private int degats;
     private String nom;
 
-    public Attaqueciblée(String nom,int degats){
+    public Attaqueciblee(String nom,int degats){
         super("Attaque ciblée");
         this.setNom(nom);
         this.setDegats(degats);

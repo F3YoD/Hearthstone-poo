@@ -48,7 +48,7 @@ public class Program {
         Sort c13 = new Sort("Marque du chasseur", 1,new MarqueDuChasseur());
         Sort c14 = new Sort("Tir des arcanes", 1,new AttaqueMentale(2));
         Sort c15 = new Sort("Lachez les chiens",3,new Invocation("chien",1,1,3,0));
-        Sort c16 = new Sort("Ordre de tuer",3,new Attaqueciblée("Ordre de tuer", 3));
+        Sort c16 = new Sort("Ordre de tuer",3,new Attaqueciblee("Ordre de tuer", 3));
 
         pDeck.add( c1);
         pDeck.add( c2);
@@ -85,10 +85,10 @@ public class Program {
 
         // carte specifique a Jaina
         Sort c12 = new Sort("Choc de flamme",7,new CapaciteDegatMassive(4));
-        Sort c13 = new Sort("Eclair de givre", 2, new Attaqueciblée("Attaque du givre",3));
+        Sort c13 = new Sort("Eclair de givre", 2, new Attaqueciblee("Attaque du givre",3));
         Sort c14 = new Sort("Intelligence des arcanes", 2,new Pioche(2));
         Sort c15 = new Sort("Image mirroir", 1, new Invocation("Image Mirroir", 2,0,2,1));
-        Sort c16 = new Sort("Explosion pyrotechnique", 10,new Attaqueciblée("Explosion pyrotechnique",10));
+        Sort c16 = new Sort("Explosion pyrotechnique", 10,new Attaqueciblee("Explosion pyrotechnique",10));
 
         pDeck.add( c1);
         pDeck.add( c2);
