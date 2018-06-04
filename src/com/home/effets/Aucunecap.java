@@ -15,4 +15,16 @@ public class Aucunecap extends Capacite {
         super("Aucune");
     }
     public void realiser(Carte lanceur, Plateau pPlateau){}
+
+    @Override
+    public String toString() {
+        return "Aucunecap{" +
+                "description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
 }

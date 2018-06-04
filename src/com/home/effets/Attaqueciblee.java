@@ -7,6 +7,7 @@ import com.home.exception.noCarteException;
 import com.home.exception.noLifeException;
 import com.home.exception.provocationException;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 /**
@@ -73,4 +74,22 @@ public class Attaqueciblee extends Capacite {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Attaqueciblee)) return false;
+        if (!super.equals(o)) return false;
+        Attaqueciblee that = (Attaqueciblee) o;
+        return getDegats() == that.getDegats() &&
+                Objects.equals(getNom(), that.getNom());
+    }
+
+    @Override
+    public String toString() {
+        return "Attaqueciblee{" +
+                "degats=" + degats +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

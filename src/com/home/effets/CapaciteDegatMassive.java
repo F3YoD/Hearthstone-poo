@@ -7,6 +7,7 @@ import com.home.effets.Capacite;
 import com.home.exception.noLifeException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * <b>CapaciteDegatMassive hérite de Capacite et est une Capacite Particulière</b>
@@ -42,7 +43,19 @@ public class CapaciteDegatMassive extends Capacite {
 
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CapaciteDegatMassive)) return false;
+        if (!super.equals(o)) return false;
+        CapaciteDegatMassive that = (CapaciteDegatMassive) o;
+        return degat == that.degat;
+    }
+
+    @Override
     public String toString() {
-        return super.toString() + "degats :" + this.degat;
+        return "CapaciteDegatMassive{" +
+                "degat=" + degat +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

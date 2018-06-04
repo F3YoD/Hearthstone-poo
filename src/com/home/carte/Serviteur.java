@@ -4,6 +4,8 @@ import com.home.Environement.Plateau;
 import com.home.effets.Capacite;
 import com.home.exception.*;
 
+import java.util.Objects;
+
 /**
  * <b>Serviteur hérite de Carte et est une Carte Particulière</b>
  * @author yoann/pierre
@@ -154,10 +156,7 @@ public class Serviteur extends Carte {
         return fin;
     }
 
-    @Override
-    public boolean equals(Object obj){
-        return super.equals(obj);
-    }
+
     public void lancer(Plateau plateau) throws lowManaException, provocationException, noCarteException {
 
         if (this.getCout() > plateau.joueurActuel().getHero().getMana()) {
@@ -174,4 +173,28 @@ public class Serviteur extends Carte {
 
 
     }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "Serviteur{" +
+                "nbVies=" + nbVies +
+                ", nbDegats=" + nbDegats +
+                ", priorite=" + priorite +
+                ", attente=" + attente +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Serviteur)) return false;
+        if (!super.equals(o)) return false;
+        Serviteur serviteur = (Serviteur) o;
+        return nbVies == serviteur.nbVies &&
+                nbDegats == serviteur.nbDegats &&
+                getPriorite() == serviteur.getPriorite() &&
+                getAttente() == serviteur.getAttente();
+    }
+
 }

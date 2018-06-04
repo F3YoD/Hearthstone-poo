@@ -5,6 +5,8 @@ import com.home.carte.Carte;
 import com.home.exception.noCarteException;
 import com.home.exception.provocationException;
 
+import java.util.Objects;
+
 /**
  * <b>une Capacite est un atout que possède une carte</b>
  * @author yoann/pierre
@@ -29,7 +31,10 @@ public abstract class Capacite {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Capacite)) return false;
+        Capacite capacite = (Capacite) o;
+        return Objects.equals(getDescription(), capacite.getDescription());
     }
 }

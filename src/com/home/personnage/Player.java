@@ -4,6 +4,8 @@ import com.home.Environement.Deck;
 import com.home.Environement.Main;
 import com.home.Environement.Terrain;
 
+import java.util.Objects;
+
 /**
  * <b>la class Player est tout ce que le joueur possède</b>
  * <p>
@@ -78,7 +80,13 @@ public class Player {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Player)) return false;
+        Player player = (Player) o;
+        return Objects.equals(getDeck(), player.getDeck()) &&
+                Objects.equals(getHero(), player.getHero()) &&
+                Objects.equals(getMain(), player.getMain()) &&
+                Objects.equals(getTerrain(), player.getTerrain());
     }
 }

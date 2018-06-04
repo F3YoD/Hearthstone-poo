@@ -36,6 +36,11 @@ public class Sort extends Carte {
     }
 
     @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
     public boolean equals(Object obj) {
         return super.equals(obj);
     }

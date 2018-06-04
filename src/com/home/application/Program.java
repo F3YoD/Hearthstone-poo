@@ -29,6 +29,7 @@ public class Program {
         game();
     }
 
+    //Fonctione qui initialise le deck de rexar
     private static void InitDeckRexar(Deck pDeck){
         Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("murloc", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
@@ -69,6 +70,7 @@ public class Program {
 
     }
 
+    //Fonction qui initialise le deck de Jaina
     private static void InitDeckJaina(Deck pDeck){
         Serviteur c1 = new Serviteur("Chasse-marree murloc", 2, 1, 2, new Invocation("Murloc", 1, 1, 1,0));
         Sort c2 = new Sort("Charge", 1,new Charge());
@@ -108,6 +110,7 @@ public class Program {
         pDeck.add(c16);
     }
 
+    //test
     public static void startPartie(Plateau p)  {
         System.out.println("******************************************* DEBUT PARTIE");
         System.out.println(p.getJoueur1().getHero().toString());
@@ -133,6 +136,7 @@ public class Program {
 
     }
 
+    //Fonction principale qui gère le jeu
     private static void game (){
         Pouvoir feu = new Feu();
         Pouvoir force = new Force();

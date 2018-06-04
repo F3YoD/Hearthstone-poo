@@ -3,6 +3,7 @@ package com.home.Environement;
 
 import com.home.personnage.Player;
 
+import java.util.Objects;
 import java.util.Random;
 
 /**
@@ -95,12 +96,21 @@ public class Plateau {
     }
 
     @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
+    public String toString() {
+        return "Plateau{" +
+                "joueur1=" + joueur1 +
+                ", joueur2=" + joueur2 +
+                ", idJoueurActuel=" + idJoueurActuel +
+                '}';
     }
 
     @Override
-    public String toString() {
-        return "Joueur 1:" +this.joueur1.toString() +"\n Joueur 2:" +this.joueur2.toString();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Plateau)) return false;
+        Plateau plateau = (Plateau) o;
+        return getIdJoueurActuel() == plateau.getIdJoueurActuel() &&
+                Objects.equals(getJoueur1(), plateau.getJoueur1()) &&
+                Objects.equals(getJoueur2(), plateau.getJoueur2());
     }
 }

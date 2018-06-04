@@ -5,6 +5,7 @@ import com.home.carte.Serviteur;
 import com.home.exception.noCarteException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * <b>la class Capacite est la liste de carte que possede le joueur</b>
@@ -63,7 +64,11 @@ public class Deck {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Deck)) return false;
+        Deck deck = (Deck) o;
+        return Objects.equals(getLstCarte(), deck.getLstCarte());
     }
+
 }

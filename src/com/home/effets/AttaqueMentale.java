@@ -4,6 +4,8 @@ import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.exception.noLifeException;
 
+import java.util.Objects;
+
 /**
  * <b>AttaqueMentale hérite de Capacite et est une Capacite Particulière</b>
  * <p>
@@ -35,5 +37,22 @@ public class AttaqueMentale extends Capacite{
             System.out.println(pPlateau.joueurActuel().getHero().getNom()+ "gagne \n");
             System.exit(0);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AttaqueMentale)) return false;
+        if (!super.equals(o)) return false;
+        AttaqueMentale that = (AttaqueMentale) o;
+        return getDegats() == that.getDegats();
+    }
+
+    @Override
+    public String toString() {
+        return "AttaqueMentale{" +
+                "degats=" + degats +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

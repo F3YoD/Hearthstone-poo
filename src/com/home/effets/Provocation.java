@@ -37,10 +37,13 @@ public class Provocation extends Capacite {
 
     @Override
     public String toString() {
-        return null;
+        return "Provocation{" +
+                "description='" + description + '\'' +
+                '}';
     }
 
-    public boolean equals() {
-        return false;
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
     }
 }

@@ -4,6 +4,8 @@ import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.carte.Serviteur;
 
+import java.util.Objects;
+
 /**
  * <b>Invocation hérite de Capacite et est une Capacite Particulière</b>
  * <p>
@@ -83,12 +85,28 @@ public class Invocation extends Capacite {
 
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public String toString() {
+        return "Invocation{" +
+                "nbinvocation=" + nbinvocation +
+                ", nomcarte='" + nomcarte + '\'' +
+                ", vie=" + vie +
+                ", attaque=" + attaque +
+                ", provo=" + provo +
+                ", description='" + description + '\'' +
+                '}';
     }
 
     @Override
-    public String toString() {
-        return super.toString() + "Invocation" + "nom carte" + this.nomcarte + "pv carte "+ this.vie + "degats carte" + this.attaque + "\n";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Invocation)) return false;
+        if (!super.equals(o)) return false;
+        Invocation that = (Invocation) o;
+        return nbinvocation == that.nbinvocation &&
+                getVie() == that.getVie() &&
+                getAttaque() == that.getAttaque() &&
+                getProvo() == that.getProvo() &&
+                Objects.equals(getNomcarte(), that.getNomcarte());
     }
+
 }

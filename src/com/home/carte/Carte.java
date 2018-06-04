@@ -100,9 +100,9 @@ public abstract class Carte {
         return "|____________________________________|";
     }
 
-
+    //Cette fonction va effectuer les actions qu'une carte va faire quand elle entre en jeux (ajouter la carte au terrain + retirer du deck + activer son effet
     public abstract void lancer(Plateau plateau)throws lowManaException, provocationException, noCarteException;
-    //tostring todo
+
 
 
     @Override

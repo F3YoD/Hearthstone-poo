@@ -4,6 +4,8 @@ import com.home.Environement.Plateau;
 import com.home.carte.Carte;
 import com.home.carte.Serviteur;
 
+import java.util.Objects;
+
 /**
  * <b>CapaciteBonus hérite de Capacite et est une Capacite Particulière</b>
  * <p>
@@ -44,5 +46,26 @@ public class CapaciteBonus extends Capacite {
             item.addDegats(this.paBonus);
             item.addVies(this.pvBonus);
         }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CapaciteBonus)) return false;
+        if (!super.equals(o)) return false;
+        CapaciteBonus that = (CapaciteBonus) o;
+        return paBonus == that.paBonus &&
+                pvBonus == that.pvBonus &&
+                Objects.equals(nom, that.nom);
+    }
+
+    @Override
+    public String toString() {
+        return "CapaciteBonus{" +
+                "paBonus=" + paBonus +
+                ", pvBonus=" + pvBonus +
+                ", nom='" + nom + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

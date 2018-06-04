@@ -33,10 +33,15 @@ public class Charge extends Capacite {
         cible.setAttente(0);
     }
 
-    public boolean equals(){
-        //a faire
-        return false;
+    @Override
+    public String toString() {
+        return "Charge{" +
+                "description='" + description + '\'' +
+                '}';
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }

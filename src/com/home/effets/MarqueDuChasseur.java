@@ -26,5 +26,17 @@ public class MarqueDuChasseur extends Capacite {
         String cherche =sc.nextLine();
         pPlateau.joueurAAttaquer().getTerrain().Findwithname(cherche).setVies(1);
     }
+
+    @Override
+    public String toString() {
+        return "MarqueDuChasseur{" +
+                "description='" + description + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return super.equals(o);
+    }
 }
 

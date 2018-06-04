@@ -5,6 +5,7 @@ import com.home.carte.Serviteur;
 import com.home.exception.noCarteException;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * <b>la class Terrain est le terrain d'un certain joueur</b>
@@ -88,11 +89,6 @@ public class Terrain {
     }
 
     @Override
-    public boolean equals(Object o) {
-        return super.equals(o);
-    }
-
-    @Override
     public String toString() {
         String fin="";
 
@@ -150,5 +146,11 @@ public class Terrain {
         return fin;
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Terrain)) return false;
+        Terrain terrain = (Terrain) o;
+        return Objects.equals(getLstCarte(), terrain.getLstCarte());
+    }
 }

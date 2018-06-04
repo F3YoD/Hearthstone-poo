@@ -4,6 +4,8 @@ import com.home.effets.Pouvoir;
 import com.home.exception.maxManaException;
 import com.home.exception.noLifeException;
 
+import java.util.Objects;
+
 /**
  * <b>la class Hero représente le joueur dans la partie</b>
  * <p>
@@ -111,11 +113,27 @@ public class Hero {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
+    public String toString() {
+        return "Hero{" +
+                "vies=" + vies +
+                ", pouvoir=" + pouvoir +
+                ", mana=" + mana +
+                ", manamax=" + manamax +
+                ", nom='" + nom + '\'' +
+                ", pouvoirdispo=" + pouvoirdispo +
+                '}';
     }
 
-    public String toString(){
-        return "Hero["+this.getNom()+" , pv : " + this.getVies() +" ]";
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Hero)) return false;
+        Hero hero = (Hero) o;
+        return getVies() == hero.getVies() &&
+                getMana() == hero.getMana() &&
+                getManamax() == hero.getManamax() &&
+                isPouvoirdispo() == hero.isPouvoirdispo() &&
+                Objects.equals(getPouvoir(), hero.getPouvoir()) &&
+                Objects.equals(getNom(), hero.getNom());
     }
 }

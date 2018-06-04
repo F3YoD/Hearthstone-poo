@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class Feu implements Pouvoir{
     public Feu(){
-        System.out.println("ceration du pouvoir");
+        System.out.println("creation du pouvoir");
     }
 
     // ================================================================== \\
@@ -57,4 +57,5 @@ public class Feu implements Pouvoir{
         }
         plat.joueurActuel().getHero().setPouvoirdispo(false);
     }
+
 }
