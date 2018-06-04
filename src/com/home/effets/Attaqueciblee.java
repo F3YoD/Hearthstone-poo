@@ -53,7 +53,7 @@ public class Attaqueciblee extends Capacite {
                 }
                 plat.joueurAAttaquer().getHero().prendDegats(this.degats);
             }catch (noLifeException e){
-                System.out.println(plat.joueurActuel().getHero().getNom()+ "gagne \n");
+                System.out.println(plat.joueurActuel().getHero().getNom()+ " gagne \n");
                 System.exit(0);
             }
         }

@@ -268,10 +268,14 @@ public class Program {
             try{
                 p.joueurActuel().getHero().getPouvoir().lancer(p);
             }catch (noLifeException e){
-                System.out.println(p.joueurActuel().getHero().getNom() +"a gagné");
+                System.out.println(p.joueurActuel().getHero().getNom() +" a gagné");
                 System.exit(0);
             }catch (pouvoirUtiliseException e1){
                 System.out.println("\033[31mPouvoir deja utilisé\033[0m \n");
+            }catch (noCarteException e2){
+                System.out.println("\033[31mLa carte n'est pas sur le terrain\033[0m \n");
+            }catch (provocationException e3){
+                System.out.println("\033[31mUne carte provoque en face\033[0m \n");
             }
         }else if(choix==4){
             p.changementJoueur();
